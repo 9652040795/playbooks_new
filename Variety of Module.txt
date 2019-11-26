@@ -1,0 +1,340 @@
+﻿---
+- hosts: MSR-test-Instance-1
+  tasks:
+  - name: Install docker Package
+    apt:
+      name: docker
+      state: present
+  - name: start httpd
+    service:
+      name: httpd
+      state: started
+
+or 
+
+---
+- hosts: all
+  tasks:
+  - name: Install docker
+    apt:
+      name: docker
+      state: present
+
+
+----------------------
+Install docker :- 
+---
+- hosts: all
+  tasks:
+  - name: Install Docker
+    apt:
+      name: "docker-{{ docker__edition }}"
+      state: "{{ docker__present }}"
+  - name: Install Docker
+    docker_service:
+      name: "docker-{{ docker__edition }}"
+      state: "{{ docker__started }}"
+
+-------------------------------------
+- name: " Installing Docker latest version"
+ yum:
+ name: docker-ce
+ state: present
+ - name: " Starting and Enabling Docker service"
+ service:
+ name: docker
+ state: started
+ enabled: yes  
+or 
+---
+- hosts: all
+  tasks:
+  - name: Install docker
+    apt:
+      name: docker-ce=18.03.*
+      state: present
+    
+  notify: Start docker on boot
+  tags:
+    - docker
+--------------or-----------
+- hosts: all
+  become: true
+
+  tasks:
+    - name: ensure repository key is installed
+      apt_key:
+        id: "58118E89F3A912897C070ADBF76221572C52609D"
+        keyserver: "hkp://p80.pool.sks-keyservers.net:80"
+        state: present
+
+    - name: ensure docker registry is available
+      # For Ubuntu 14.04 LTS, use this repository:
+      apt_repository: repo='deb https://apt.dockerproject.org/repo ubuntu-trusty main' state=present
+      # For Ubuntu 16.04 LTS, use this repo instead:
+      # apt_repository: repo='deb https://apt.dockerproject.org/repo ubuntu-xenial main' state=present
+
+    - name: ensure docker and dependencies are installed
+      apt: name=docker-engine update_cache=yes
+
+    # Uncomment the following to enable insecure registries with Docker
+    #- name: ensure docker can use insecure registries in 10.11.0.0/16
+    #  lineinfile: "dest=/etc/default/docker regexp=^DOCKER_OPTS line=DOCKER_OPTS='--insecure-registry 10.11.0.0/16'"
+
+    - service: name=docker state=restarted
+------------------------------------------------------------------
+Docker-Compose installation using ansible:- 
+---
+- hosts: all
+  tasks:
+  - name: Install docker-compose
+    apt:
+     name: docker-compose=1.8.*
+     state: present
+  tags:
+   - docker
+----------------------------------------------------------------------
+To install multiple base packages:-
+
+- name: Install base packages
+  apt: name={{ item }} state=installed
+  with_items:
+    - locales
+    - build-essential
+    - acl
+    - ntp
+    - htop
+    - git
+    - supervisor
+    - python-pip
+    - python3-pip
+    - nginx
+  tags:
+    - packages
+--------------------------------------------------------------------
+Node_8.12.0
+
+- name: jslint
+    version: 0.9.3
+-------------------------------------------------------------------------------------
+To install nvm using ansible:- 
+---
+- hosts: all
+  tasks:
+  - name: Install nvm
+    shell: >
+      curl https://raw.githubusercontent.com/creationix/nvm/v0.7.0/install.sh | sh
+      creates=/home/{{ ansible_user_id }}/.nvm/nvm.sh
+--------------------------------------------------
+Install nginx usign ansible:-
+
+---
+- hosts: all
+  tasks:
+    - name: ensure nginx is at the latest version
+      apt: name=nginx state=latest
+    - name: start nginx
+      service:
+          name: nginx
+          state: started
+--------------------------------------------------------------
+Ansible Playbook to set up Nginx:- 
+---
+- hosts: all
+  tasks:
+    - name: ensure nginx is at the latest version
+      apt: name=nginx state=latest
+      become: yes
+    - name: start nginx
+      service:
+          name: nginx
+          state: started
+      become: yes
+    - name: copy the nginx config file and restart nginx
+      copy:
+        src: /home/foo/static_site.cfg
+        dest: /etc/nginx/sites-available/static_site.cfg
+      become: yes
+    - name: create symlink
+      file:
+        src: /etc/nginx/sites-available/static_site.cfg
+        dest: /etc/nginx/sites-enabled/default
+        state: link
+      become: yes
+    - name: copy the content of the web site
+      copy:
+        src: /home/foo/static-site-src/
+        dest: /home/foo/static-site
+
+
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
+      become: yes
+
+Then I run this command:
+
+$ ansible-playbook -i inventory.cfg  --limit 192.168.56.11 nginx.yml
+------------------------------------------------------------------------------------------------
+install docker in new way:-
+---
+- hosts: all
+  - name: install docker 
+    shell: "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -"
+  - name: apt_repo
+    shell: sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  - name: update
+--- -- -------------------------------  
+- name: Install latest version of "openjdk-6-jdk" ignoring "install-recommends"
+  apt:
+    name: openjdk-6-jdk
+    state: latest
+    install_recommends: no
+--------------------------------------------------
+To install the package:
+
+- name: Install the package "foo"
+  apt:
+    name: apt-get install build-essential libssl-dev
+---------------------------------------------------------------------------------
+To install node using playbook:- success
+
+---
+- hosts: all
+  vars:
+    NODEJS_VERSION: "8"
+    ansible_distribution_release: "xenial" #trusty
+  tasks:
+  - name: Install the gpg key for nodejs LTS
+    apt_key:
+      url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+      state: present
+
+  - name: Install the nodejs LTS repos
+    apt_repository:
+      repo: "deb https://deb.nodesource.com/node_{{ NODEJS_VERSION }}.x {{ ansible_distribution_release }} main"
+      state: present
+
+  - name: Install the nodejs
+    apt:
+      name: nodejs
+      state: present
+---------------------------------------------------------------------------------------------
+To Install Openssl using ansible:-
+---
+- hosts:
+  tasks:
+  - name: Go to the folder
+    command: chdir=/usr/src
+  - name: Download openssl
+    get_url:
+      url: https://www.openssl.org/source/openssl-1.0.2-latest.tar.gz
+      dest: /usr/src    
+  - name: Extract tar.gz
+    unarchive:
+      src: openssl-1.0.2-latest.tar.gz
+      dest: /usr/src
+  - name: Go to the folder
+    command: chdir=/usr/src/openssl-1.0.2r
+
+  - name: Run the command if the specified file does not exist.
+    command: /usr/bin/make_database.sh arg1 arg2
+
+or 
+
+---
+- hosts: all
+  tasks:
+  - name:
+    apt:
+     name: openssl
+     state: present
+-------------------------------------------------------------
+To copy source to container:- 
+- name: Copy source into container
+  synchronize:
+    src: "/src/"
+    dest: "/app"
+  remote_user: flask
+---------------------------------------------------------------
+To Build a container:- 
+- name: docker | Build apache webserver container image
+      docker_image:
+        docker_host: unix://var/run/docker.sock
+        path: .
+        name: web
+
+    - name: docker | Start web container
+      docker_container:
+        docker_host: unix://var/run/docker.sock
+        name: web
+        image:  web
+        command: bash -c "rm -f tmp/pids/server.pid || true && bundle exec rails s -p 3000 -b '0.0.0.0'"
+        ports: 
+          - '3000:3000'
+        links:
+          - db
+==========================================
+With the site directory on the docker host, we can use the " docker_image "  module to build it.
+
+- name: build the image
+  docker_image: >
+    name=built-by-ansible
+    tag=ex1
+    path=/tmp/site
+    state=present
+We can use the docker module, which is fully supported by ansible, to run a container from the new image, built-by-ansible:ex1.
+
+- name: run the site in a docker container
+      docker:
+        name: site1
+        image: "built-by-ansible:ex1"
+        state: reloaded
+        publish_all_ports: yes
+-------------------------------------------------------------------
+version: '3'
+services:
+  db:
+     image: mysql
+     container_name: mysql_db
+     restart: always
+     environment:
+        - MYSQL_ROOT_PASSWORD="secret"
+  web:
+    image: apache
+    build: ./webapp
+    depends_on:
+       - db
+    container_name: apache_web
+    restart: always
+    ports:
+      - "8080:80"
+----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+* Pull a ubuntu image ----->vi pull_image.yml, vi create_image.yml, vi create_container.yml, vi validatehost_validator.yml
+---
+- hosts: all
+  tasks:
+  - name: pull
+    docker_image:
+        name: ubuntu
+  - name: build image
+    docker_image: 
+        path: /root/docker
+        name: apache webserver
+  - name: apache container
+    docker_container:
+        name: apache
+        state: startedcd
+        ports:
+        - "8080:80"
+        tty: true
+        detach: true
+  - name: validate docker container
+    url: 
+       url: http://dockerhost:8080
+       return_content: yes
+    register: this
+    failed_when: "'hey there' not in this.content"
+

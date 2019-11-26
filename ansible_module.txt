@@ -1,0 +1,2535 @@
+
+Chandra@DESKTOP-4MSFD26 MINGW64 ~/Downloads (master)
+$ ssh -i "Hema_Webserver.pem" ec2-user@ec2-54-197-14-25.compute-1.amazonaws.com
+The authenticity of host 'ec2-54-197-14-25.compute-1.amazonaws.com (54.197.14.25)' can't beestablished.
+ECDSA key fingerprint is SHA256:pe03k6t8fd6gbuklCZ4FFlGW+o87k4Ck0HqfK8tFoXk.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'ec2-54-197-14-25.compute-1.amazonaws.com,54.197.14.25' (ECDSA) to the list of known hosts.
+[ec2-user@ip-172-31-89-23 ~]$ sudo -i
+[root@ip-172-31-89-23 ~]# vi /etc/yum/pluginconf.d/subscription-manager.conf
+[root@ip-172-31-89-23 ~]# rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+Retrieving https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+warning: /var/tmp/rpm-tmp.n3ixaa: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:epel-release-7-11                ################################# [100%]
+[root@ip-172-31-89-23 ~]# yum update -y
+Loaded plugins: amazon-id, rhui-lb, search-disabled-repos
+epel/x86_64/metalink                                                 |  19 kB  00:00:00
+http://csc.mcs.sdsmt.edu/epel/7/x86_64/repodata/repomd.xml: [Errno 12] Timeout on http://csc.mcs.sdsmt.edu/epel/7/x86_64/repodata/repomd.xml: (28, 'Connection timed out after 30001 milliseconds')
+Trying other mirror.
+epel                                                                 | 4.7 kB  00:00:00
+rhui-REGION-client-config-server-7                                   | 2.9 kB  00:00:00
+rhui-REGION-rhel-server-releases                                     | 3.5 kB  00:00:00
+rhui-REGION-rhel-server-rh-common                                    | 3.8 kB  00:00:00
+(1/10): epel/x86_64/group_gz                                         |  88 kB  00:00:00
+(2/10): epel/x86_64/updateinfo                                       | 956 kB  00:00:00
+(3/10): rhui-REGION-client-config-server-7/x86_64/primary_db         | 3.3 kB  00:00:00
+(4/10): rhui-REGION-rhel-server-rh-common/7Server/x86_64/group       |  104 B  00:00:00
+(5/10): rhui-REGION-rhel-server-releases/7Server/x86_64/group        | 856 kB  00:00:00
+(6/10): rhui-REGION-rhel-server-rh-common/7Server/x86_64/updateinfo  |  33 kB  00:00:00
+(7/10): rhui-REGION-rhel-server-releases/7Server/x86_64/updateinfo   | 3.2 MB  00:00:00
+(8/10): rhui-REGION-rhel-server-rh-common/7Server/x86_64/primary_db  | 116 kB  00:00:00
+(9/10): epel/x86_64/primary_db                                       | 6.6 MB  00:00:00
+(10/10): rhui-REGION-rhel-server-releases/7Server/x86_64/primary_db  |  54 MB  00:00:02
+Resolving Dependencies
+--> Running transaction check
+---> Package NetworkManager.x86_64 1:1.12.0-6.el7 will be updated
+---> Package NetworkManager.x86_64 1:1.12.0-8.el7_6 will be an update
+---> Package NetworkManager-config-server.noarch 1:1.12.0-6.el7 will be updated
+---> Package NetworkManager-config-server.noarch 1:1.12.0-8.el7_6 will be an update
+---> Package NetworkManager-libnm.x86_64 1:1.12.0-6.el7 will be updated
+---> Package NetworkManager-libnm.x86_64 1:1.12.0-8.el7_6 will be an update
+---> Package NetworkManager-team.x86_64 1:1.12.0-6.el7 will be updated
+---> Package NetworkManager-team.x86_64 1:1.12.0-8.el7_6 will be an update
+---> Package NetworkManager-tui.x86_64 1:1.12.0-6.el7 will be updated
+---> Package NetworkManager-tui.x86_64 1:1.12.0-8.el7_6 will be an update
+---> Package bind-libs-lite.x86_64 32:9.9.4-72.el7 will be updated
+---> Package bind-libs-lite.x86_64 32:9.9.4-73.el7_6 will be an update
+---> Package bind-license.noarch 32:9.9.4-72.el7 will be updated
+---> Package bind-license.noarch 32:9.9.4-73.el7_6 will be an update
+---> Package cloud-init.x86_64 0:18.2-1.el7 will be updated
+---> Package cloud-init.x86_64 0:18.2-1.el7_6.1 will be an update
+---> Package cronie.x86_64 0:1.4.11-19.el7 will be updated
+---> Package cronie.x86_64 0:1.4.11-20.el7_6 will be an update
+---> Package cronie-anacron.x86_64 0:1.4.11-19.el7 will be updated
+---> Package cronie-anacron.x86_64 0:1.4.11-20.el7_6 will be an update
+---> Package device-mapper.x86_64 7:1.02.149-8.el7 will be updated
+---> Package device-mapper.x86_64 7:1.02.149-10.el7_6.3 will be an update
+---> Package device-mapper-libs.x86_64 7:1.02.149-8.el7 will be updated
+---> Package device-mapper-libs.x86_64 7:1.02.149-10.el7_6.3 will be an update
+---> Package freetype.x86_64 0:2.8-12.el7 will be updated
+---> Package freetype.x86_64 0:2.8-12.el7_6.1 will be an update
+---> Package glibc.x86_64 0:2.17-260.el7 will be updated
+---> Package glibc.x86_64 0:2.17-260.el7_6.3 will be an update
+---> Package glibc-common.x86_64 0:2.17-260.el7 will be updated
+---> Package glibc-common.x86_64 0:2.17-260.el7_6.3 will be an update
+---> Package grub2.x86_64 1:2.02-0.76.el7 will be updated
+---> Package grub2.x86_64 1:2.02-0.76.el7.1 will be an update
+---> Package grub2-common.noarch 1:2.02-0.76.el7 will be updated
+---> Package grub2-common.noarch 1:2.02-0.76.el7.1 will be an update
+---> Package grub2-pc.x86_64 1:2.02-0.76.el7 will be updated
+---> Package grub2-pc.x86_64 1:2.02-0.76.el7.1 will be an update
+---> Package grub2-pc-modules.noarch 1:2.02-0.76.el7 will be updated
+---> Package grub2-pc-modules.noarch 1:2.02-0.76.el7.1 will be an update
+---> Package grub2-tools.x86_64 1:2.02-0.76.el7 will be updated
+---> Package grub2-tools.x86_64 1:2.02-0.76.el7.1 will be an update
+---> Package grub2-tools-extra.x86_64 1:2.02-0.76.el7 will be updated
+---> Package grub2-tools-extra.x86_64 1:2.02-0.76.el7.1 will be an update
+---> Package grub2-tools-minimal.x86_64 1:2.02-0.76.el7 will be updated
+---> Package grub2-tools-minimal.x86_64 1:2.02-0.76.el7.1 will be an update
+---> Package kernel.x86_64 0:3.10.0-957.5.1.el7 will be installed
+--> Processing Dependency: linux-firmware >= 20180911-68 for package: kernel-3.10.0-957.5.1.el7.x86_64
+---> Package kernel-tools.x86_64 0:3.10.0-957.el7 will be updated
+---> Package kernel-tools.x86_64 0:3.10.0-957.5.1.el7 will be an update
+---> Package kernel-tools-libs.x86_64 0:3.10.0-957.el7 will be updated
+---> Package kernel-tools-libs.x86_64 0:3.10.0-957.5.1.el7 will be an update
+---> Package krb5-libs.x86_64 0:1.15.1-34.el7 will be updated
+---> Package krb5-libs.x86_64 0:1.15.1-37.el7_6 will be an update
+---> Package libgudev1.x86_64 0:219-62.el7 will be updated
+---> Package libgudev1.x86_64 0:219-62.el7_6.3 will be an update
+---> Package nss.x86_64 0:3.36.0-7.el7_5 will be updated
+---> Package nss.x86_64 0:3.36.0-7.1.el7_6 will be an update
+---> Package nss-sysinit.x86_64 0:3.36.0-7.el7_5 will be updated
+---> Package nss-sysinit.x86_64 0:3.36.0-7.1.el7_6 will be an update
+---> Package nss-tools.x86_64 0:3.36.0-7.el7_5 will be updated
+---> Package nss-tools.x86_64 0:3.36.0-7.1.el7_6 will be an update
+---> Package nss-util.x86_64 0:3.36.0-1.el7_5 will be updated
+---> Package nss-util.x86_64 0:3.36.0-1.1.el7_6 will be an update
+---> Package openldap.x86_64 0:2.4.44-20.el7 will be updated
+---> Package openldap.x86_64 0:2.4.44-21.el7_6 will be an update
+---> Package policycoreutils.x86_64 0:2.5-29.el7 will be updated
+---> Package policycoreutils.x86_64 0:2.5-29.el7_6.1 will be an update
+---> Package policycoreutils-python.x86_64 0:2.5-29.el7 will be updated
+---> Package policycoreutils-python.x86_64 0:2.5-29.el7_6.1 will be an update
+---> Package polkit.x86_64 0:0.112-18.el7 will be updated
+---> Package polkit.x86_64 0:0.112-18.el7_6.1 will be an update
+---> Package python-perf.x86_64 0:3.10.0-957.el7 will be updated
+---> Package python-perf.x86_64 0:3.10.0-957.5.1.el7 will be an update
+---> Package rh-amazon-rhui-client.noarch 0:2.2.141-1.el7 will be updated
+---> Package rh-amazon-rhui-client.noarch 0:2.2.147-1.el7 will be an update
+---> Package selinux-policy.noarch 0:3.13.1-229.el7 will be updated
+---> Package selinux-policy.noarch 0:3.13.1-229.el7_6.9 will be an update
+---> Package selinux-policy-targeted.noarch 0:3.13.1-229.el7 will be updated
+---> Package selinux-policy-targeted.noarch 0:3.13.1-229.el7_6.9 will be an update
+---> Package subscription-manager.x86_64 0:1.21.10-2.el7 will be updated
+---> Package subscription-manager.x86_64 0:1.21.10-3.el7_6 will be an update
+---> Package subscription-manager-rhsm.x86_64 0:1.21.10-2.el7 will be updated
+---> Package subscription-manager-rhsm.x86_64 0:1.21.10-3.el7_6 will be an update
+---> Package subscription-manager-rhsm-certificates.x86_64 0:1.21.10-2.el7 will be updated
+---> Package subscription-manager-rhsm-certificates.x86_64 0:1.21.10-3.el7_6 will be an update
+---> Package systemd.x86_64 0:219-62.el7 will be updated
+---> Package systemd.x86_64 0:219-62.el7_6.3 will be an update
+---> Package systemd-libs.x86_64 0:219-62.el7 will be updated
+---> Package systemd-libs.x86_64 0:219-62.el7_6.3 will be an update
+---> Package systemd-sysv.x86_64 0:219-62.el7 will be updated
+---> Package systemd-sysv.x86_64 0:219-62.el7_6.3 will be an update
+---> Package tzdata.noarch 0:2018e-3.el7 will be updated
+---> Package tzdata.noarch 0:2018i-1.el7 will be an update
+--> Running transaction check
+---> Package linux-firmware.noarch 0:20180911-69.git85c5d90.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+============================================================================================
+ Package                Arch   Version               Repository                        Size
+============================================================================================
+Installing:
+ kernel                 x86_64 3.10.0-957.5.1.el7    rhui-REGION-rhel-server-releases  48 M
+Updating:
+ NetworkManager         x86_64 1:1.12.0-8.el7_6      rhui-REGION-rhel-server-releases 1.7 M
+ NetworkManager-config-server
+                        noarch 1:1.12.0-8.el7_6      rhui-REGION-rhel-server-releases 145 k
+ NetworkManager-libnm   x86_64 1:1.12.0-8.el7_6      rhui-REGION-rhel-server-releases 1.4 M
+ NetworkManager-team    x86_64 1:1.12.0-8.el7_6      rhui-REGION-rhel-server-releases 159 k
+ NetworkManager-tui     x86_64 1:1.12.0-8.el7_6      rhui-REGION-rhel-server-releases 239 k
+ bind-libs-lite         x86_64 32:9.9.4-73.el7_6     rhui-REGION-rhel-server-releases 741 k
+ bind-license           noarch 32:9.9.4-73.el7_6     rhui-REGION-rhel-server-releases  87 k
+ cloud-init             x86_64 18.2-1.el7_6.1        rhui-REGION-rhel-server-releases 778 k
+ cronie                 x86_64 1.4.11-20.el7_6       rhui-REGION-rhel-server-releases  91 k
+ cronie-anacron         x86_64 1.4.11-20.el7_6       rhui-REGION-rhel-server-releases  36 k
+ device-mapper          x86_64 7:1.02.149-10.el7_6.3 rhui-REGION-rhel-server-releases 293 k
+ device-mapper-libs     x86_64 7:1.02.149-10.el7_6.3 rhui-REGION-rhel-server-releases 320 k
+ freetype               x86_64 2.8-12.el7_6.1        rhui-REGION-rhel-server-releases 380 k
+ glibc                  x86_64 2.17-260.el7_6.3      rhui-REGION-rhel-server-releases 3.6 M
+ glibc-common           x86_64 2.17-260.el7_6.3      rhui-REGION-rhel-server-releases  11 M
+ grub2                  x86_64 1:2.02-0.76.el7.1     rhui-REGION-rhel-server-releases  30 k
+ grub2-common           noarch 1:2.02-0.76.el7.1     rhui-REGION-rhel-server-releases 728 k
+ grub2-pc               x86_64 1:2.02-0.76.el7.1     rhui-REGION-rhel-server-releases  30 k
+ grub2-pc-modules       noarch 1:2.02-0.76.el7.1     rhui-REGION-rhel-server-releases 846 k
+ grub2-tools            x86_64 1:2.02-0.76.el7.1     rhui-REGION-rhel-server-releases 1.8 M
+ grub2-tools-extra      x86_64 1:2.02-0.76.el7.1     rhui-REGION-rhel-server-releases 995 k
+ grub2-tools-minimal    x86_64 1:2.02-0.76.el7.1     rhui-REGION-rhel-server-releases 172 k
+ kernel-tools           x86_64 3.10.0-957.5.1.el7    rhui-REGION-rhel-server-releases 7.1 M
+ kernel-tools-libs      x86_64 3.10.0-957.5.1.el7    rhui-REGION-rhel-server-releases 7.0 M
+ krb5-libs              x86_64 1.15.1-37.el7_6       rhui-REGION-rhel-server-releases 803 k
+ libgudev1              x86_64 219-62.el7_6.3        rhui-REGION-rhel-server-releases  96 k
+ nss                    x86_64 3.36.0-7.1.el7_6      rhui-REGION-rhel-server-releases 835 k
+ nss-sysinit            x86_64 3.36.0-7.1.el7_6      rhui-REGION-rhel-server-releases  62 k
+ nss-tools              x86_64 3.36.0-7.1.el7_6      rhui-REGION-rhel-server-releases 515 k
+ nss-util               x86_64 3.36.0-1.1.el7_6      rhui-REGION-rhel-server-releases  78 k
+ openldap               x86_64 2.4.44-21.el7_6       rhui-REGION-rhel-server-releases 356 k
+ policycoreutils        x86_64 2.5-29.el7_6.1        rhui-REGION-rhel-server-releases 916 k
+ policycoreutils-python x86_64 2.5-29.el7_6.1        rhui-REGION-rhel-server-releases 456 k
+ polkit                 x86_64 0.112-18.el7_6.1      rhui-REGION-rhel-server-releases 168 k
+ python-perf            x86_64 3.10.0-957.5.1.el7    rhui-REGION-rhel-server-releases 7.1 M
+ rh-amazon-rhui-client  noarch 2.2.147-1.el7         rhui-REGION-client-config-server-7
+                                                                                       55 k
+ selinux-policy         noarch 3.13.1-229.el7_6.9    rhui-REGION-rhel-server-releases 483 k
+ selinux-policy-targeted
+                        noarch 3.13.1-229.el7_6.9    rhui-REGION-rhel-server-releases 6.9 M
+ subscription-manager   x86_64 1.21.10-3.el7_6       rhui-REGION-rhel-server-releases 1.0 M
+ subscription-manager-rhsm
+                        x86_64 1.21.10-3.el7_6       rhui-REGION-rhel-server-releases 297 k
+ subscription-manager-rhsm-certificates
+                        x86_64 1.21.10-3.el7_6       rhui-REGION-rhel-server-releases 212 k
+ systemd                x86_64 219-62.el7_6.3        rhui-REGION-rhel-server-releases 5.1 M
+ systemd-libs           x86_64 219-62.el7_6.3        rhui-REGION-rhel-server-releases 406 k
+ systemd-sysv           x86_64 219-62.el7_6.3        rhui-REGION-rhel-server-releases  83 k
+ tzdata                 noarch 2018i-1.el7           rhui-REGION-rhel-server-releases 490 k
+Installing for dependencies:
+ linux-firmware         noarch 20180911-69.git85c5d90.el7
+                                                     rhui-REGION-rhel-server-releases  49 M
+
+Transaction Summary
+============================================================================================
+Install   1 Package  (+1 Dependent package)
+Upgrade  45 Packages
+
+Total download size: 163 M
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+(1/47): NetworkManager-config-server-1.12.0-8.el7_6.noarch.rpm       | 145 kB  00:00:00
+(2/47): NetworkManager-team-1.12.0-8.el7_6.x86_64.rpm                | 159 kB  00:00:00
+(3/47): NetworkManager-1.12.0-8.el7_6.x86_64.rpm                     | 1.7 MB  00:00:00
+(4/47): NetworkManager-libnm-1.12.0-8.el7_6.x86_64.rpm               | 1.4 MB  00:00:00
+(5/47): NetworkManager-tui-1.12.0-8.el7_6.x86_64.rpm                 | 239 kB  00:00:00
+(6/47): bind-libs-lite-9.9.4-73.el7_6.x86_64.rpm                     | 741 kB  00:00:00
+(7/47): cloud-init-18.2-1.el7_6.1.x86_64.rpm                         | 778 kB  00:00:00
+(8/47): cronie-1.4.11-20.el7_6.x86_64.rpm                            |  91 kB  00:00:00
+(9/47): bind-license-9.9.4-73.el7_6.noarch.rpm                       |  87 kB  00:00:00
+(10/47): cronie-anacron-1.4.11-20.el7_6.x86_64.rpm                   |  36 kB  00:00:00
+(11/47): device-mapper-1.02.149-10.el7_6.3.x86_64.rpm                | 293 kB  00:00:00
+(12/47): device-mapper-libs-1.02.149-10.el7_6.3.x86_64.rpm           | 320 kB  00:00:00
+(13/47): freetype-2.8-12.el7_6.1.x86_64.rpm                          | 380 kB  00:00:00
+(14/47): grub2-2.02-0.76.el7.1.x86_64.rpm                            |  30 kB  00:00:00
+(15/47): grub2-common-2.02-0.76.el7.1.noarch.rpm                     | 728 kB  00:00:00
+(16/47): glibc-2.17-260.el7_6.3.x86_64.rpm                           | 3.6 MB  00:00:00
+(17/47): grub2-pc-2.02-0.76.el7.1.x86_64.rpm                         |  30 kB  00:00:00
+(18/47): grub2-pc-modules-2.02-0.76.el7.1.noarch.rpm                 | 846 kB  00:00:00
+(19/47): grub2-tools-extra-2.02-0.76.el7.1.x86_64.rpm                | 995 kB  00:00:00
+(20/47): grub2-tools-2.02-0.76.el7.1.x86_64.rpm                      | 1.8 MB  00:00:00
+(21/47): grub2-tools-minimal-2.02-0.76.el7.1.x86_64.rpm              | 172 kB  00:00:00
+(22/47): glibc-common-2.17-260.el7_6.3.x86_64.rpm                    |  11 MB  00:00:00
+(23/47): krb5-libs-1.15.1-37.el7_6.x86_64.rpm                        | 803 kB  00:00:00
+(24/47): kernel-tools-libs-3.10.0-957.5.1.el7.x86_64.rpm             | 7.0 MB  00:00:00
+(25/47): kernel-tools-3.10.0-957.5.1.el7.x86_64.rpm                  | 7.1 MB  00:00:01
+(26/47): libgudev1-219-62.el7_6.3.x86_64.rpm                         |  96 kB  00:00:00
+(27/47): nss-sysinit-3.36.0-7.1.el7_6.x86_64.rpm                     |  62 kB  00:00:00
+(28/47): nss-3.36.0-7.1.el7_6.x86_64.rpm                             | 835 kB  00:00:00
+(29/47): nss-util-3.36.0-1.1.el7_6.x86_64.rpm                        |  78 kB  00:00:00
+(30/47): nss-tools-3.36.0-7.1.el7_6.x86_64.rpm                       | 515 kB  00:00:00
+(31/47): openldap-2.4.44-21.el7_6.x86_64.rpm                         | 356 kB  00:00:00
+(32/47): policycoreutils-python-2.5-29.el7_6.1.x86_64.rpm            | 456 kB  00:00:00
+(33/47): policycoreutils-2.5-29.el7_6.1.x86_64.rpm                   | 916 kB  00:00:00
+(34/47): polkit-0.112-18.el7_6.1.x86_64.rpm                          | 168 kB  00:00:00
+(35/47): selinux-policy-3.13.1-229.el7_6.9.noarch.rpm                | 483 kB  00:00:00
+(36/47): rh-amazon-rhui-client-2.2.147-1.el7.noarch.rpm              |  55 kB  00:00:00
+(37/47): python-perf-3.10.0-957.5.1.el7.x86_64.rpm                   | 7.1 MB  00:00:00
+(38/47): kernel-3.10.0-957.5.1.el7.x86_64.rpm                        |  48 MB  00:00:02
+(39/47): subscription-manager-1.21.10-3.el7_6.x86_64.rpm             | 1.0 MB  00:00:00
+(40/47): subscription-manager-rhsm-certificates-1.21.10-3.el7_6.x86_ | 212 kB  00:00:00
+(41/47): subscription-manager-rhsm-1.21.10-3.el7_6.x86_64.rpm        | 297 kB  00:00:00
+(42/47): systemd-219-62.el7_6.3.x86_64.rpm                           | 5.1 MB  00:00:00
+(43/47): systemd-sysv-219-62.el7_6.3.x86_64.rpm                      |  83 kB  00:00:00
+(44/47): systemd-libs-219-62.el7_6.3.x86_64.rpm                      | 406 kB  00:00:00
+(45/47): selinux-policy-targeted-3.13.1-229.el7_6.9.noarch.rpm       | 6.9 MB  00:00:00
+(46/47): tzdata-2018i-1.el7.noarch.rpm                               | 490 kB  00:00:00
+(47/47): linux-firmware-20180911-69.git85c5d90.el7.noarch.rpm        |  49 MB  00:00:02
+--------------------------------------------------------------------------------------------
+Total                                                        31 MB/s | 163 MB  00:00:05
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+Warning: RPMDB altered outside of yum.
+  Updating   : 1:grub2-common-2.02-0.76.el7.1.noarch                                   1/92
+  Updating   : 1:grub2-pc-modules-2.02-0.76.el7.1.noarch                               2/92
+  Updating   : 32:bind-license-9.9.4-73.el7_6.noarch                                   3/92
+  Updating   : tzdata-2018i-1.el7.noarch                                               4/92
+  Updating   : glibc-common-2.17-260.el7_6.3.x86_64                                    5/92
+  Updating   : glibc-2.17-260.el7_6.3.x86_64                                           6/92
+  Updating   : systemd-libs-219-62.el7_6.3.x86_64                                      7/92
+  Updating   : systemd-219-62.el7_6.3.x86_64                                           8/92
+  Updating   : nss-util-3.36.0-1.1.el7_6.x86_64                                        9/92
+  Updating   : nss-sysinit-3.36.0-7.1.el7_6.x86_64                                    10/92
+  Updating   : nss-3.36.0-7.1.el7_6.x86_64                                            11/92
+  Updating   : policycoreutils-2.5-29.el7_6.1.x86_64                                  12/92
+  Updating   : 1:NetworkManager-libnm-1.12.0-8.el7_6.x86_64                           13/92
+  Updating   : selinux-policy-3.13.1-229.el7_6.9.noarch                               14/92
+  Updating   : policycoreutils-python-2.5-29.el7_6.1.x86_64                           15/92
+  Updating   : nss-tools-3.36.0-7.1.el7_6.x86_64                                      16/92
+  Updating   : cronie-1.4.11-20.el7_6.x86_64                                          17/92
+  Updating   : cronie-anacron-1.4.11-20.el7_6.x86_64                                  18/92
+  Updating   : 7:device-mapper-1.02.149-10.el7_6.3.x86_64                             19/92
+  Updating   : 7:device-mapper-libs-1.02.149-10.el7_6.3.x86_64                        20/92
+  Updating   : 1:grub2-tools-minimal-2.02-0.76.el7.1.x86_64                           21/92
+  Updating   : 1:grub2-tools-2.02-0.76.el7.1.x86_64                                   22/92
+  Updating   : polkit-0.112-18.el7_6.1.x86_64                                         23/92
+  Updating   : 1:NetworkManager-1.12.0-8.el7_6.x86_64                                 24/92
+  Updating   : kernel-tools-libs-3.10.0-957.5.1.el7.x86_64                            25/92
+  Updating   : krb5-libs-1.15.1-37.el7_6.x86_64                                       26/92
+  Updating   : freetype-2.8-12.el7_6.1.x86_64                                         27/92
+  Updating   : 1:grub2-tools-extra-2.02-0.76.el7.1.x86_64                             28/92
+  Updating   : 1:grub2-pc-2.02-0.76.el7.1.x86_64                                      29/92
+  Installing : linux-firmware-20180911-69.git85c5d90.el7.noarch                       30/92
+  Updating   : subscription-manager-rhsm-certificates-1.21.10-3.el7_6.x86_64          31/92
+  Updating   : subscription-manager-rhsm-1.21.10-3.el7_6.x86_64                       32/92
+  Updating   : subscription-manager-1.21.10-3.el7_6.x86_64                            33/92
+  Installing : kernel-3.10.0-957.5.1.el7.x86_64                                       34/92
+  Updating   : 1:grub2-2.02-0.76.el7.1.x86_64                                         35/92
+  Updating   : 32:bind-libs-lite-9.9.4-73.el7_6.x86_64                                36/92
+  Updating   : kernel-tools-3.10.0-957.5.1.el7.x86_64                                 37/92
+  Updating   : 1:NetworkManager-tui-1.12.0-8.el7_6.x86_64                             38/92
+  Updating   : 1:NetworkManager-team-1.12.0-8.el7_6.x86_64                            39/92
+  Updating   : openldap-2.4.44-21.el7_6.x86_64                                        40/92
+  Updating   : cloud-init-18.2-1.el7_6.1.x86_64                                       41/92
+warning: /etc/cloud/cloud.cfg created as /etc/cloud/cloud.cfg.rpmnew
+  Updating   : selinux-policy-targeted-3.13.1-229.el7_6.9.noarch                      42/92
+  Updating   : systemd-sysv-219-62.el7_6.3.x86_64                                     43/92
+  Updating   : libgudev1-219-62.el7_6.3.x86_64                                        44/92
+  Updating   : python-perf-3.10.0-957.5.1.el7.x86_64                                  45/92
+  Updating   : rh-amazon-rhui-client-2.2.147-1.el7.noarch                             46/92
+[INFO:choose_repo] choose_repo:39 2019-02-04 08:29:06,228: Zone [us-east-1b]
+[INFO:choose_repo] choose_repo:67 2019-02-04 08:29:06,231: Enabling binary repos in redhat-rhui.repo
+[INFO:choose_repo] choose_repo:86 2019-02-04 08:29:06,232: Enabling load balancer plugin
+[INFO:choose_repo] choose_repo:88 2019-02-04 08:29:06,232: Executing [sed -i 's/enabled=0/enabled=1/' /etc/yum/pluginconf.d/rhui-lb.conf]
+[INFO:choose_repo] choose_repo:92 2019-02-04 08:29:06,237: Setting region in load balancer config
+[INFO:choose_repo] choose_repo:94 2019-02-04 08:29:06,237: Executing [sed -i 's/REGION/us-east-1/' /etc/yum.repos.d/rhui-load-balancers.conf]
+[INFO:choose_repo] choose_repo:98 2019-02-04 08:29:06,239: Enabling client config repo
+[INFO:choose_repo] choose_repo:101 2019-02-04 08:29:06,240: Executing [sed -i 's/enabled=0/enabled=1/' /etc/yum.repos.d/redhat-rhui-client-config.repo]
+  Updating   : 1:NetworkManager-config-server-1.12.0-8.el7_6.noarch                   47/92
+  Cleanup    : cloud-init-18.2-1.el7.x86_64                                           48/92
+  Cleanup    : selinux-policy-targeted-3.13.1-229.el7.noarch                          49/92
+  Cleanup    : selinux-policy-3.13.1-229.el7.noarch                                   50/92
+  Cleanup    : systemd-sysv-219-62.el7.x86_64                                         51/92
+  Cleanup    : 1:grub2-2.02-0.76.el7.x86_64                                           52/92
+  Cleanup    : 1:NetworkManager-tui-1.12.0-6.el7.x86_64                               53/92
+  Cleanup    : openldap-2.4.44-20.el7.x86_64                                          54/92
+  Cleanup    : 1:grub2-pc-2.02-0.76.el7.x86_64                                        55/92
+  Cleanup    : 1:grub2-tools-extra-2.02-0.76.el7.x86_64                               56/92
+  Cleanup    : nss-tools-3.36.0-7.el7_5.x86_64                                        57/92
+  Cleanup    : 1:grub2-tools-2.02-0.76.el7.x86_64                                     58/92
+  Cleanup    : 32:bind-libs-lite-9.9.4-72.el7.x86_64                                  59/92
+  Cleanup    : 1:grub2-tools-minimal-2.02-0.76.el7.x86_64                             60/92
+  Cleanup    : 7:device-mapper-1.02.149-8.el7.x86_64                                  61/92
+  Cleanup    : 7:device-mapper-libs-1.02.149-8.el7.x86_64                             62/92
+  Cleanup    : kernel-tools-3.10.0-957.el7.x86_64                                     63/92
+  Cleanup    : libgudev1-219-62.el7.x86_64                                            64/92
+  Cleanup    : policycoreutils-python-2.5-29.el7.x86_64                               65/92
+  Cleanup    : subscription-manager-1.21.10-2.el7.x86_64                              66/92
+  Cleanup    : subscription-manager-rhsm-1.21.10-2.el7.x86_64                         67/92
+  Cleanup    : cronie-1.4.11-19.el7.x86_64                                            68/92
+  Cleanup    : cronie-anacron-1.4.11-19.el7.x86_64                                    69/92
+  Cleanup    : 1:NetworkManager-team-1.12.0-6.el7.x86_64                              70/92
+  Cleanup    : 1:grub2-pc-modules-2.02-0.76.el7.noarch                                71/92
+  Cleanup    : 1:NetworkManager-1.12.0-6.el7.x86_64                                   72/92
+  Cleanup    : 1:NetworkManager-libnm-1.12.0-6.el7.x86_64                             73/92
+  Cleanup    : nss-sysinit-3.36.0-7.el7_5.x86_64                                      74/92
+  Cleanup    : nss-3.36.0-7.el7_5.x86_64                                              75/92
+  Cleanup    : polkit-0.112-18.el7.x86_64                                             76/92
+  Cleanup    : systemd-219-62.el7.x86_64                                              77/92
+  Cleanup    : systemd-libs-219-62.el7.x86_64                                         78/92
+  Cleanup    : nss-util-3.36.0-1.el7_5.x86_64                                         79/92
+  Cleanup    : policycoreutils-2.5-29.el7.x86_64                                      80/92
+  Cleanup    : kernel-tools-libs-3.10.0-957.el7.x86_64                                81/92
+  Cleanup    : krb5-libs-1.15.1-34.el7.x86_64                                         82/92
+  Cleanup    : freetype-2.8-12.el7.x86_64                                             83/92
+  Cleanup    : python-perf-3.10.0-957.el7.x86_64                                      84/92
+  Cleanup    : 1:grub2-common-2.02-0.76.el7.noarch                                    85/92
+  Cleanup    : subscription-manager-rhsm-certificates-1.21.10-2.el7.x86_64            86/92
+  Cleanup    : 32:bind-license-9.9.4-72.el7.noarch                                    87/92
+  Cleanup    : rh-amazon-rhui-client-2.2.141-1.el7.noarch                             88/92
+  Cleanup    : 1:NetworkManager-config-server-1.12.0-6.el7.noarch                     89/92
+  Cleanup    : glibc-common-2.17-260.el7.x86_64                                       90/92
+  Cleanup    : glibc-2.17-260.el7.x86_64                                              91/92
+  Cleanup    : tzdata-2018e-3.el7.noarch                                              92/92
+  Verifying  : 1:grub2-tools-extra-2.02-0.76.el7.1.x86_64                              1/92
+  Verifying  : python-perf-3.10.0-957.5.1.el7.x86_64                                   2/92
+  Verifying  : 1:NetworkManager-libnm-1.12.0-8.el7_6.x86_64                            3/92
+  Verifying  : 7:device-mapper-libs-1.02.149-10.el7_6.3.x86_64                         4/92
+  Verifying  : 1:NetworkManager-1.12.0-8.el7_6.x86_64                                  5/92
+  Verifying  : selinux-policy-3.13.1-229.el7_6.9.noarch                                6/92
+  Verifying  : selinux-policy-targeted-3.13.1-229.el7_6.9.noarch                       7/92
+  Verifying  : 1:NetworkManager-config-server-1.12.0-8.el7_6.noarch                    8/92
+  Verifying  : cronie-anacron-1.4.11-20.el7_6.x86_64                                   9/92
+  Verifying  : kernel-tools-libs-3.10.0-957.5.1.el7.x86_64                            10/92
+  Verifying  : nss-3.36.0-7.1.el7_6.x86_64                                            11/92
+  Verifying  : 1:grub2-2.02-0.76.el7.1.x86_64                                         12/92
+  Verifying  : nss-tools-3.36.0-7.1.el7_6.x86_64                                      13/92
+  Verifying  : systemd-sysv-219-62.el7_6.3.x86_64                                     14/92
+  Verifying  : glibc-2.17-260.el7_6.3.x86_64                                          15/92
+  Verifying  : krb5-libs-1.15.1-37.el7_6.x86_64                                       16/92
+  Verifying  : nss-sysinit-3.36.0-7.1.el7_6.x86_64                                    17/92
+  Verifying  : 1:NetworkManager-tui-1.12.0-8.el7_6.x86_64                             18/92
+  Verifying  : subscription-manager-rhsm-1.21.10-3.el7_6.x86_64                       19/92
+  Verifying  : 1:NetworkManager-team-1.12.0-8.el7_6.x86_64                            20/92
+  Verifying  : subscription-manager-1.21.10-3.el7_6.x86_64                            21/92
+  Verifying  : libgudev1-219-62.el7_6.3.x86_64                                        22/92
+  Verifying  : subscription-manager-rhsm-certificates-1.21.10-3.el7_6.x86_64          23/92
+  Verifying  : cronie-1.4.11-20.el7_6.x86_64                                          24/92
+  Verifying  : openldap-2.4.44-21.el7_6.x86_64                                        25/92
+  Verifying  : rh-amazon-rhui-client-2.2.147-1.el7.noarch                             26/92
+  Verifying  : 1:grub2-pc-2.02-0.76.el7.1.x86_64                                      27/92
+  Verifying  : 1:grub2-tools-2.02-0.76.el7.1.x86_64                                   28/92
+  Verifying  : systemd-libs-219-62.el7_6.3.x86_64                                     29/92
+  Verifying  : kernel-tools-3.10.0-957.5.1.el7.x86_64                                 30/92
+  Verifying  : 1:grub2-common-2.02-0.76.el7.1.noarch                                  31/92
+  Verifying  : policycoreutils-2.5-29.el7_6.1.x86_64                                  32/92
+  Verifying  : linux-firmware-20180911-69.git85c5d90.el7.noarch                       33/92
+  Verifying  : policycoreutils-python-2.5-29.el7_6.1.x86_64                           34/92
+  Verifying  : tzdata-2018i-1.el7.noarch                                              35/92
+  Verifying  : glibc-common-2.17-260.el7_6.3.x86_64                                   36/92
+  Verifying  : freetype-2.8-12.el7_6.1.x86_64                                         37/92
+  Verifying  : 7:device-mapper-1.02.149-10.el7_6.3.x86_64                             38/92
+  Verifying  : 32:bind-license-9.9.4-73.el7_6.noarch                                  39/92
+  Verifying  : 1:grub2-tools-minimal-2.02-0.76.el7.1.x86_64                           40/92
+  Verifying  : systemd-219-62.el7_6.3.x86_64                                          41/92
+  Verifying  : 1:grub2-pc-modules-2.02-0.76.el7.1.noarch                              42/92
+  Verifying  : nss-util-3.36.0-1.1.el7_6.x86_64                                       43/92
+  Verifying  : kernel-3.10.0-957.5.1.el7.x86_64                                       44/92
+  Verifying  : 32:bind-libs-lite-9.9.4-73.el7_6.x86_64                                45/92
+  Verifying  : polkit-0.112-18.el7_6.1.x86_64                                         46/92
+  Verifying  : cloud-init-18.2-1.el7_6.1.x86_64                                       47/92
+  Verifying  : 1:grub2-pc-modules-2.02-0.76.el7.noarch                                48/92
+  Verifying  : 1:NetworkManager-team-1.12.0-6.el7.x86_64                              49/92
+  Verifying  : freetype-2.8-12.el7.x86_64                                             50/92
+  Verifying  : 1:grub2-tools-extra-2.02-0.76.el7.x86_64                               51/92
+  Verifying  : 32:bind-license-9.9.4-72.el7.noarch                                    52/92
+  Verifying  : policycoreutils-2.5-29.el7.x86_64                                      53/92
+  Verifying  : systemd-libs-219-62.el7.x86_64                                         54/92
+  Verifying  : krb5-libs-1.15.1-34.el7.x86_64                                         55/92
+  Verifying  : 1:grub2-2.02-0.76.el7.x86_64                                           56/92
+  Verifying  : nss-sysinit-3.36.0-7.el7_5.x86_64                                      57/92
+  Verifying  : policycoreutils-python-2.5-29.el7.x86_64                               58/92
+  Verifying  : cronie-anacron-1.4.11-19.el7.x86_64                                    59/92
+  Verifying  : 7:device-mapper-libs-1.02.149-8.el7.x86_64                             60/92
+  Verifying  : 1:grub2-tools-2.02-0.76.el7.x86_64                                     61/92
+  Verifying  : kernel-tools-libs-3.10.0-957.el7.x86_64                                62/92
+  Verifying  : libgudev1-219-62.el7.x86_64                                            63/92
+  Verifying  : systemd-219-62.el7.x86_64                                              64/92
+  Verifying  : nss-tools-3.36.0-7.el7_5.x86_64                                        65/92
+  Verifying  : 1:NetworkManager-tui-1.12.0-6.el7.x86_64                               66/92
+  Verifying  : subscription-manager-1.21.10-2.el7.x86_64                              67/92
+  Verifying  : nss-util-3.36.0-1.el7_5.x86_64                                         68/92
+  Verifying  : cloud-init-18.2-1.el7.x86_64                                           69/92
+  Verifying  : 1:grub2-tools-minimal-2.02-0.76.el7.x86_64                             70/92
+  Verifying  : openldap-2.4.44-20.el7.x86_64                                          71/92
+  Verifying  : subscription-manager-rhsm-1.21.10-2.el7.x86_64                         72/92
+  Verifying  : glibc-2.17-260.el7.x86_64                                              73/92
+  Verifying  : 1:grub2-pc-2.02-0.76.el7.x86_64                                        74/92
+  Verifying  : 7:device-mapper-1.02.149-8.el7.x86_64                                  75/92
+  Verifying  : selinux-policy-3.13.1-229.el7.noarch                                   76/92
+  Verifying  : 32:bind-libs-lite-9.9.4-72.el7.x86_64                                  77/92
+  Verifying  : kernel-tools-3.10.0-957.el7.x86_64                                     78/92
+  Verifying  : subscription-manager-rhsm-certificates-1.21.10-2.el7.x86_64            79/92
+  Verifying  : 1:NetworkManager-config-server-1.12.0-6.el7.noarch                     80/92
+  Verifying  : 1:NetworkManager-1.12.0-6.el7.x86_64                                   81/92
+  Verifying  : 1:grub2-common-2.02-0.76.el7.noarch                                    82/92
+  Verifying  : systemd-sysv-219-62.el7.x86_64                                         83/92
+  Verifying  : python-perf-3.10.0-957.el7.x86_64                                      84/92
+  Verifying  : nss-3.36.0-7.el7_5.x86_64                                              85/92
+  Verifying  : selinux-policy-targeted-3.13.1-229.el7.noarch                          86/92
+  Verifying  : glibc-common-2.17-260.el7.x86_64                                       87/92
+  Verifying  : tzdata-2018e-3.el7.noarch                                              88/92
+  Verifying  : 1:NetworkManager-libnm-1.12.0-6.el7.x86_64                             89/92
+  Verifying  : polkit-0.112-18.el7.x86_64                                             90/92
+  Verifying  : cronie-1.4.11-19.el7.x86_64                                            91/92
+  Verifying  : rh-amazon-rhui-client-2.2.141-1.el7.noarch                             92/92
+
+Installed:
+  kernel.x86_64 0:3.10.0-957.5.1.el7
+
+Dependency Installed:
+  linux-firmware.noarch 0:20180911-69.git85c5d90.el7
+
+Updated:
+  NetworkManager.x86_64 1:1.12.0-8.el7_6
+  NetworkManager-config-server.noarch 1:1.12.0-8.el7_6
+  NetworkManager-libnm.x86_64 1:1.12.0-8.el7_6
+  NetworkManager-team.x86_64 1:1.12.0-8.el7_6
+  NetworkManager-tui.x86_64 1:1.12.0-8.el7_6
+  bind-libs-lite.x86_64 32:9.9.4-73.el7_6
+  bind-license.noarch 32:9.9.4-73.el7_6
+  cloud-init.x86_64 0:18.2-1.el7_6.1
+  cronie.x86_64 0:1.4.11-20.el7_6
+  cronie-anacron.x86_64 0:1.4.11-20.el7_6
+  device-mapper.x86_64 7:1.02.149-10.el7_6.3
+  device-mapper-libs.x86_64 7:1.02.149-10.el7_6.3
+  freetype.x86_64 0:2.8-12.el7_6.1
+  glibc.x86_64 0:2.17-260.el7_6.3
+  glibc-common.x86_64 0:2.17-260.el7_6.3
+  grub2.x86_64 1:2.02-0.76.el7.1
+  grub2-common.noarch 1:2.02-0.76.el7.1
+  grub2-pc.x86_64 1:2.02-0.76.el7.1
+  grub2-pc-modules.noarch 1:2.02-0.76.el7.1
+  grub2-tools.x86_64 1:2.02-0.76.el7.1
+  grub2-tools-extra.x86_64 1:2.02-0.76.el7.1
+  grub2-tools-minimal.x86_64 1:2.02-0.76.el7.1
+  kernel-tools.x86_64 0:3.10.0-957.5.1.el7
+  kernel-tools-libs.x86_64 0:3.10.0-957.5.1.el7
+  krb5-libs.x86_64 0:1.15.1-37.el7_6
+  libgudev1.x86_64 0:219-62.el7_6.3
+  nss.x86_64 0:3.36.0-7.1.el7_6
+  nss-sysinit.x86_64 0:3.36.0-7.1.el7_6
+  nss-tools.x86_64 0:3.36.0-7.1.el7_6
+  nss-util.x86_64 0:3.36.0-1.1.el7_6
+  openldap.x86_64 0:2.4.44-21.el7_6
+  policycoreutils.x86_64 0:2.5-29.el7_6.1
+  policycoreutils-python.x86_64 0:2.5-29.el7_6.1
+  polkit.x86_64 0:0.112-18.el7_6.1
+  python-perf.x86_64 0:3.10.0-957.5.1.el7
+  rh-amazon-rhui-client.noarch 0:2.2.147-1.el7
+  selinux-policy.noarch 0:3.13.1-229.el7_6.9
+  selinux-policy-targeted.noarch 0:3.13.1-229.el7_6.9
+  subscription-manager.x86_64 0:1.21.10-3.el7_6
+  subscription-manager-rhsm.x86_64 0:1.21.10-3.el7_6
+  subscription-manager-rhsm-certificates.x86_64 0:1.21.10-3.el7_6
+  systemd.x86_64 0:219-62.el7_6.3
+  systemd-libs.x86_64 0:219-62.el7_6.3
+  systemd-sysv.x86_64 0:219-62.el7_6.3
+  tzdata.noarch 0:2018i-1.el7
+
+Complete!
+[root@ip-172-31-89-23 ~]# yum install       ^C
+[root@ip-172-31-89-23 ~]# ^C
+[root@ip-172-31-89-23 ~]# ^C
+[root@ip-172-31-89-23 ~]# ^C
+[root@ip-172-31-89-23 ~]# yum install ansible -y
+Loaded plugins: amazon-id, rhui-lb, search-disabled-repos
+rhui-REGION-client-config-server-7                                   | 2.9 kB  00:00:00
+rhui-REGION-rhel-server-releases                                     | 3.5 kB  00:00:00
+rhui-REGION-rhel-server-rh-common                                    | 3.8 kB  00:00:00
+Resolving Dependencies
+--> Running transaction check
+---> Package ansible.noarch 0:2.7.6-1.el7 will be installed
+--> Processing Dependency: python-crypto for package: ansible-2.7.6-1.el7.noarch
+--> Processing Dependency: python-httplib2 for package: ansible-2.7.6-1.el7.noarch
+--> Processing Dependency: python-keyczar for package: ansible-2.7.6-1.el7.noarch
+--> Processing Dependency: python-paramiko for package: ansible-2.7.6-1.el7.noarch
+--> Processing Dependency: python2-jmespath for package: ansible-2.7.6-1.el7.noarch
+--> Processing Dependency: sshpass for package: ansible-2.7.6-1.el7.noarch
+--> Running transaction check
+---> Package python-httplib2.noarch 0:0.9.2-0.1.el7 will be installed
+---> Package python-keyczar.noarch 0:0.71c-2.el7 will be installed
+--> Processing Dependency: python-pyasn1 for package: python-keyczar-0.71c-2.el7.noarch
+---> Package python-paramiko.noarch 0:2.1.1-9.el7 will be installed
+--> Processing Dependency: python-cryptography for package: python-paramiko-2.1.1-9.el7.noarch
+---> Package python2-crypto.x86_64 0:2.6.1-13.el7 will be installed
+--> Processing Dependency: libtomcrypt.so.0()(64bit) for package: python2-crypto-2.6.1-13.el7.x86_64
+---> Package python2-jmespath.noarch 0:0.9.0-1.el7 will be installed
+---> Package sshpass.x86_64 0:1.06-1.el7 will be installed
+--> Running transaction check
+---> Package libtomcrypt.x86_64 0:1.17-25.el7 will be installed
+--> Processing Dependency: libtommath >= 0.42.0 for package: libtomcrypt-1.17-25.el7.x86_64
+--> Processing Dependency: libtommath.so.0()(64bit) for package: libtomcrypt-1.17-25.el7.x86_64
+---> Package python2-cryptography.x86_64 0:1.7.2-2.el7 will be installed
+--> Processing Dependency: python-cffi >= 1.4.1 for package: python2-cryptography-1.7.2-2.el7.x86_64
+--> Processing Dependency: python-idna >= 2.0 for package: python2-cryptography-1.7.2-2.el7.x86_64
+--> Processing Dependency: python-enum34 for package: python2-cryptography-1.7.2-2.el7.x86_64
+---> Package python2-pyasn1.noarch 0:0.1.9-7.el7 will be installed
+--> Running transaction check
+---> Package libtommath.x86_64 0:0.42.0-5.el7 will be installed
+---> Package python-cffi.x86_64 0:1.6.0-5.el7 will be installed
+--> Processing Dependency: python-pycparser for package: python-cffi-1.6.0-5.el7.x86_64
+---> Package python-enum34.noarch 0:1.0.4-1.el7 will be installed
+---> Package python-idna.noarch 0:2.4-1.el7 will be installed
+--> Running transaction check
+---> Package python-pycparser.noarch 0:2.14-1.el7 will be installed
+--> Processing Dependency: python-ply for package: python-pycparser-2.14-1.el7.noarch
+--> Running transaction check
+---> Package python-ply.noarch 0:3.4-11.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+============================================================================================
+ Package                Arch     Version           Repository                          Size
+============================================================================================
+Installing:
+ ansible                noarch   2.7.6-1.el7       epel                                11 M
+Installing for dependencies:
+ libtomcrypt            x86_64   1.17-25.el7       epel                               225 k
+ libtommath             x86_64   0.42.0-5.el7      epel                                35 k
+ python-cffi            x86_64   1.6.0-5.el7       rhui-REGION-rhel-server-releases   218 k
+ python-enum34          noarch   1.0.4-1.el7       rhui-REGION-rhel-server-releases    52 k
+ python-httplib2        noarch   0.9.2-0.1.el7     epel                               115 k
+ python-idna            noarch   2.4-1.el7         rhui-REGION-rhel-server-releases    94 k
+ python-keyczar         noarch   0.71c-2.el7       epel                               218 k
+ python-paramiko        noarch   2.1.1-9.el7       rhui-REGION-rhel-server-releases   269 k
+ python-ply             noarch   3.4-11.el7        rhui-REGION-rhel-server-releases   123 k
+ python-pycparser       noarch   2.14-1.el7        rhui-REGION-rhel-server-releases   105 k
+ python2-crypto         x86_64   2.6.1-13.el7      epel                               476 k
+ python2-cryptography   x86_64   1.7.2-2.el7       rhui-REGION-rhel-server-releases   503 k
+ python2-jmespath       noarch   0.9.0-1.el7       epel                                39 k
+ python2-pyasn1         noarch   0.1.9-7.el7       rhui-REGION-rhel-server-releases   100 k
+ sshpass                x86_64   1.06-1.el7        epel                                21 k
+
+Transaction Summary
+============================================================================================
+Install  1 Package (+15 Dependent packages)
+
+Total download size: 14 M
+Installed size: 71 M
+Downloading packages:
+warning: /var/cache/yum/x86_64/7Server/epel/packages/ansible-2.7.6-1.el7.noarch.rpm: HeaderV3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY
+Public key for ansible-2.7.6-1.el7.noarch.rpm is not installed
+(1/16): ansible-2.7.6-1.el7.noarch.rpm                               |  11 MB  00:00:00
+(2/16): libtomcrypt-1.17-25.el7.x86_64.rpm                           | 225 kB  00:00:00
+(3/16): libtommath-0.42.0-5.el7.x86_64.rpm                           |  35 kB  00:00:00
+(4/16): python-httplib2-0.9.2-0.1.el7.noarch.rpm                     | 115 kB  00:00:00
+(5/16): python-keyczar-0.71c-2.el7.noarch.rpm                        | 218 kB  00:00:00
+(6/16): python-cffi-1.6.0-5.el7.x86_64.rpm                           | 218 kB  00:00:00
+(7/16): python-idna-2.4-1.el7.noarch.rpm                             |  94 kB  00:00:00
+(8/16): python-enum34-1.0.4-1.el7.noarch.rpm                         |  52 kB  00:00:00
+(9/16): python-ply-3.4-11.el7.noarch.rpm                             | 123 kB  00:00:00
+(10/16): python-paramiko-2.1.1-9.el7.noarch.rpm                      | 269 kB  00:00:00
+(11/16): python-pycparser-2.14-1.el7.noarch.rpm                      | 105 kB  00:00:00
+(12/16): python2-cryptography-1.7.2-2.el7.x86_64.rpm                 | 503 kB  00:00:00
+(13/16): python2-crypto-2.6.1-13.el7.x86_64.rpm                      | 476 kB  00:00:00
+(14/16): python2-jmespath-0.9.0-1.el7.noarch.rpm                     |  39 kB  00:00:00
+(15/16): sshpass-1.06-1.el7.x86_64.rpm                               |  21 kB  00:00:00
+(16/16): python2-pyasn1-0.1.9-7.el7.noarch.rpm                       | 100 kB  00:00:00
+--------------------------------------------------------------------------------------------
+Total                                                       7.8 MB/s |  14 MB  00:00:01
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Importing GPG key 0x352C64E5:
+ Userid     : "Fedora EPEL (7) <epel@fedoraproject.org>"
+ Fingerprint: 91e9 7d7c 4a5e 96f1 7f3e 888f 6a2f aea2 352c 64e5
+ Package    : epel-release-7-11.noarch (installed)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : python2-pyasn1-0.1.9-7.el7.noarch                                       1/16
+  Installing : python2-jmespath-0.9.0-1.el7.noarch                                     2/16
+  Installing : libtommath-0.42.0-5.el7.x86_64                                          3/16
+  Installing : libtomcrypt-1.17-25.el7.x86_64                                          4/16
+  Installing : python2-crypto-2.6.1-13.el7.x86_64                                      5/16
+  Installing : python-keyczar-0.71c-2.el7.noarch                                       6/16
+  Installing : python-enum34-1.0.4-1.el7.noarch                                        7/16
+  Installing : sshpass-1.06-1.el7.x86_64                                               8/16
+  Installing : python-httplib2-0.9.2-0.1.el7.noarch                                    9/16
+  Installing : python-ply-3.4-11.el7.noarch                                           10/16
+  Installing : python-pycparser-2.14-1.el7.noarch                                     11/16
+  Installing : python-cffi-1.6.0-5.el7.x86_64                                         12/16
+  Installing : python-idna-2.4-1.el7.noarch                                           13/16
+  Installing : python2-cryptography-1.7.2-2.el7.x86_64                                14/16
+  Installing : python-paramiko-2.1.1-9.el7.noarch                                     15/16
+  Installing : ansible-2.7.6-1.el7.noarch                                             16/16
+  Verifying  : python-keyczar-0.71c-2.el7.noarch                                       1/16
+  Verifying  : python-idna-2.4-1.el7.noarch                                            2/16
+  Verifying  : ansible-2.7.6-1.el7.noarch                                              3/16
+  Verifying  : python-ply-3.4-11.el7.noarch                                            4/16
+  Verifying  : python-httplib2-0.9.2-0.1.el7.noarch                                    5/16
+  Verifying  : python-paramiko-2.1.1-9.el7.noarch                                      6/16
+  Verifying  : python-pycparser-2.14-1.el7.noarch                                      7/16
+  Verifying  : sshpass-1.06-1.el7.x86_64                                               8/16
+  Verifying  : libtomcrypt-1.17-25.el7.x86_64                                          9/16
+  Verifying  : python-cffi-1.6.0-5.el7.x86_64                                         10/16
+  Verifying  : python-enum34-1.0.4-1.el7.noarch                                       11/16
+  Verifying  : python2-pyasn1-0.1.9-7.el7.noarch                                      12/16
+  Verifying  : libtommath-0.42.0-5.el7.x86_64                                         13/16
+  Verifying  : python2-cryptography-1.7.2-2.el7.x86_64                                14/16
+  Verifying  : python2-jmespath-0.9.0-1.el7.noarch                                    15/16
+  Verifying  : python2-crypto-2.6.1-13.el7.x86_64                                     16/16
+
+Installed:
+  ansible.noarch 0:2.7.6-1.el7
+
+Dependency Installed:
+  libtomcrypt.x86_64 0:1.17-25.el7            libtommath.x86_64 0:0.42.0-5.el7
+  python-cffi.x86_64 0:1.6.0-5.el7            python-enum34.noarch 0:1.0.4-1.el7
+  python-httplib2.noarch 0:0.9.2-0.1.el7      python-idna.noarch 0:2.4-1.el7
+  python-keyczar.noarch 0:0.71c-2.el7         python-paramiko.noarch 0:2.1.1-9.el7
+  python-ply.noarch 0:3.4-11.el7              python-pycparser.noarch 0:2.14-1.el7
+  python2-crypto.x86_64 0:2.6.1-13.el7        python2-cryptography.x86_64 0:1.7.2-2.el7
+  python2-jmespath.noarch 0:0.9.0-1.el7       python2-pyasn1.noarch 0:0.1.9-7.el7
+  sshpass.x86_64 0:1.06-1.el7
+
+Complete!
+[root@ip-172-31-89-23 ~]# ansible --version
+ansible 2.7.6
+  config file = /etc/ansible/ansible.cfg
+  configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /bin/ansible
+  python version = 2.7.5 (default, Sep 12 2018, 05:31:16) [GCC 4.8.5 20150623 (Red Hat 4.8.5-36)]
+[root@ip-172-31-89-23 ~]# adduser ansible_user
+[root@ip-172-31-89-23 ~]# passwd ansible_user
+Changing password for user ansible_user.
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@ip-172-31-89-23 ~]# visudo
+[root@ip-172-31-89-23 ~]# vi /etc/ssh/sshd_config
+[root@ip-172-31-89-23 ~]# service sshd restart
+Redirecting to /bin/systemctl restart sshd.service
+[root@ip-172-31-89-23 ~]# su - ansible_user
+[ansible_user@ip-172-31-89-23 ~]$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/ansible_user/.ssh/id_rsa):
+Created directory '/home/ansible_user/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/ansible_user/.ssh/id_rsa.
+Your public key has been saved in /home/ansible_user/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:xYl3zy+NtJSNUi57JrF1pPfZZY43kuOlPG+rNFl2MUE ansible_user@ip-172-31-89-23.ec2.internal
+The key's randomart image is:
++---[RSA 2048]----+
+|              .E |
+|         o .    .|
+|        . = . .o.|
+|         o . = *o|
+|        S   + @oB|
+|             X=@*|
+|            +BB+B|
+|            +=*+.|
+|             ==o.|
++----[SHA256]-----+
+[ansible_user@ip-172-31-89-23 ~]$ Connection reset by 54.197.14.25 port 22
+
+
+Chandra@DESKTOP-4MSFD26 MINGW64 ~/Downloads (master)
+$
+
+
+Chandra@DESKTOP-4MSFD26 MINGW64 ~/Downloads (master)
+$
+
+
+Chandra@DESKTOP-4MSFD26 MINGW64 ~/Downloads (master)
+$
+
+Chandra@DESKTOP-4MSFD26 MINGW64 ~/Downloads (master)
+$
+
+Chandra@DESKTOP-4MSFD26 MINGW64 ~/Downloads (master)
+$ ssh -i "Hema_Webserver.pem" ec2-user@ec2-54-197-14-25.compute-1.amazonaws.com
+Last login: Mon Feb  4 08:22:34 2019 from 157.44.188.130
+[ec2-user@ip-172-31-89-23 ~]$ sudo -i
+[root@ip-172-31-89-23 ~]# su - ansible_user
+Last login: Mon Feb  4 08:44:33 UTC 2019 on pts/0
+[ansible_user@ip-172-31-89-23 ~]$ ssh-copy-id ansible_user@172.31.84.182
+/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/ansible_user/.ssh/id_rsa.pub"
+The authenticity of host '172.31.84.182 (172.31.84.182)' can't be established.
+ECDSA key fingerprint is SHA256:PZqOOH9bROSeBJYwI6oeBlZtEIMYiNBwDrWN8oPMF7E.
+ECDSA key fingerprint is MD5:94:95:c8:f5:c0:d9:44:12:50:44:0a:1f:c7:f7:d5:e5.
+Are you sure you want to continue connecting (yes/no)? yes
+/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is toinstall the new keys
+ansible_user@172.31.84.182's password:
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'ansible_user@172.31.84.182'"
+and check to make sure that only the key(s) you wanted were added.
+
+[ansible_user@ip-172-31-89-23 ~]$ ssh 'ansible_user@172.31.84.182'
+Last login: Mon Feb  4 09:04:10 2019
+[ansible_user@ip-172-31-84-182 ~]$ exit
+logout
+Connection to 172.31.84.182 closed.
+[ansible_user@ip-172-31-89-23 ~]$
+[ansible_user@ip-172-31-89-23 ~]$ cd /etc/ansible/
+[ansible_user@ip-172-31-89-23 ansible]$
+[ansible_user@ip-172-31-89-23 ansible]$
+[ansible_user@ip-172-31-89-23 ansible]$
+[ansible_user@ip-172-31-89-23 ansible]$
+[ansible_user@ip-172-31-89-23 ansible]$ ls -lrt
+total 24
+drwxr-xr-x. 2 root root     6 Jan 18 01:34 roles
+-rw-r--r--. 1 root root  1016 Jan 18 01:34 hosts
+-rw-r--r--. 1 root root 20277 Jan 18 01:34 ansible.cfg
+[ansible_user@ip-172-31-89-23 ansible]$ cat hosts
+# This is the default ansible 'hosts' file.
+#
+# It should live in /etc/ansible/hosts
+#
+#   - Comments begin with the '#' character
+#   - Blank lines are ignored
+#   - Groups of hosts are delimited by [header] elements
+#   - You can enter hostnames or ip addresses
+#   - A hostname/ip can be a member of multiple groups
+
+# Ex 1: Ungrouped hosts, specify before any group headers.
+
+## green.example.com
+## blue.example.com
+## 192.168.100.1
+## 192.168.100.10
+
+# Ex 2: A collection of hosts belonging to the 'webservers' group
+
+## [webservers]
+## alpha.example.org
+## beta.example.org
+## 192.168.1.100
+## 192.168.1.110
+
+# If you have multiple hosts following a pattern you can specify
+# them like this:
+
+## www[001:006].example.com
+
+# Ex 3: A collection of database servers in the 'dbservers' group
+
+## [dbservers]
+##
+## db01.intranet.mydomain.net
+## db02.intranet.mydomain.net
+## 10.25.1.56
+## 10.25.1.57
+
+# Here's another example of host ranges, this time there are no
+# leading 0s:
+
+## db-[99:101]-node.example.com
+
+[ansible_user@ip-172-31-89-23 ansible]$ sudo mv hosts hosts_old
+[ansible_user@ip-172-31-89-23 ansible]$ ls -lrt
+total 24
+drwxr-xr-x. 2 root root     6 Jan 18 01:34 roles
+-rw-r--r--. 1 root root  1016 Jan 18 01:34 hosts_old
+-rw-r--r--. 1 root root 20277 Jan 18 01:34 ansible.cfg
+[ansible_user@ip-172-31-89-23 ansible]$ sudo vi hosts
+[ansible_user@ip-172-31-89-23 ansible]$ cat hosts
+[group1]
+172.31.84.182
+[ansible_user@ip-172-31-89-23 ansible]$
+[ansible_user@ip-172-31-89-23 ansible]$
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m ping
+172.31.84.182 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+[ansible_user@ip-172-31-89-23 ansible]$ sudo touch text.txt
+[ansible_user@ip-172-31-89-23 ansible]$ ls -lrt
+total 28
+drwxr-xr-x. 2 root root     6 Jan 18 01:34 roles
+-rw-r--r--. 1 root root  1016 Jan 18 01:34 hosts_old
+-rw-r--r--. 1 root root 20277 Jan 18 01:34 ansible.cfg
+-rw-r--r--. 1 root root    23 Feb  4 09:24 hosts
+-rw-r--r--. 1 root root     0 Feb  4 09:31 text.txt
+[ansible_user@ip-172-31-89-23 ansible]$ scpscop
+-bash: scpscop: command not found
+[ansible_user@ip-172-31-89-23 ansible]$
+[ansible_user@ip-172-31-89-23 ansible]$ scp text.txt ansible_user@172.31.84.182:/home/ansible
+scp: /home/ansible: Permission denied
+[ansible_user@ip-172-31-89-23 ansible]$ scp text.txt ansible_user@172.31.84.182: /home/ansible
+/home/ansible: No such file or directory
+[ansible_user@ip-172-31-89-23 ansible]$ sudo scp text.txt ansible_user@172.31.84.182: /home/ansible
+/home/ansible: No such file or directory
+[ansible_user@ip-172-31-89-23 ansible]$ sudo scp text.txt ansible_user@172.31.84.182:/home/ansible_user
+The authenticity of host '172.31.84.182 (172.31.84.182)' can't be established.
+ECDSA key fingerprint is SHA256:PZqOOH9bROSeBJYwI6oeBlZtEIMYiNBwDrWN8oPMF7E.
+ECDSA key fingerprint is MD5:94:95:c8:f5:c0:d9:44:12:50:44:0a:1f:c7:f7:d5:e5.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '172.31.84.182' (ECDSA) to the list of known hosts.
+ansible_user@172.31.84.182's password:
+text.txt                                                  100%    0     0.0KB/s   00:00
+[ansible_user@ip-172-31-89-23 ansible]$ sudo scp text.txt ansible_user@172.31.84.182:/home/ansible_user
+ansible_user@172.31.84.182's password:
+text.txt                                                  100%    0     0.0KB/s   00:00
+[ansible_user@ip-172-31-89-23 ansible]$ sudo touch file1.txt
+[ansible_user@ip-172-31-89-23 ansible]$ ls -lrt
+total 28
+drwxr-xr-x. 2 root root     6 Jan 18 01:34 roles
+-rw-r--r--. 1 root root  1016 Jan 18 01:34 hosts_old
+-rw-r--r--. 1 root root 20277 Jan 18 01:34 ansible.cfg
+-rw-r--r--. 1 root root    23 Feb  4 09:24 hosts
+-rw-r--r--. 1 root root     0 Feb  4 09:31 text.txt
+-rw-r--r--. 1 root root     0 Feb  4 09:36 file1.txt
+[ansible_user@ip-172-31-89-23 ansible]$ scp text.txt ansible_user@172.31.84.182:/home/ansible_user
+text.txt                                                  100%    0     0.0KB/s   00:00
+[ansible_user@ip-172-31-89-23 ansible]$
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m setup
+172.31.84.182 | SUCCESS => {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "172.31.84.182"
+        ],
+        "ansible_all_ipv6_addresses": [
+            "fe80::1083:e5ff:fea1:7cda"
+        ],
+        "ansible_apparmor": {
+            "status": "disabled"
+        },
+        "ansible_architecture": "x86_64",
+        "ansible_bios_date": "08/24/2006",
+        "ansible_bios_version": "4.2.amazon",
+        "ansible_cmdline": {
+            "BOOT_IMAGE": "/boot/vmlinuz-3.10.0-957.el7.x86_64",
+            "LANG": "en_US.UTF-8",
+            "console": "tty0",
+            "crashkernel": "auto",
+            "net.ifnames": "0",
+            "rd.blacklist": "nouveau",
+            "ro": true,
+            "root": "UUID=88fd4d41-c180-4721-80c6-535249a4a2bb"
+        },
+        "ansible_date_time": {
+            "date": "2019-02-04",
+            "day": "04",
+            "epoch": "1549273312",
+            "hour": "09",
+            "iso8601": "2019-02-04T09:41:52Z",
+            "iso8601_basic": "20190204T094152489713",
+            "iso8601_basic_short": "20190204T094152",
+            "iso8601_micro": "2019-02-04T09:41:52.489803Z",
+            "minute": "41",
+            "month": "02",
+            "second": "52",
+            "time": "09:41:52",
+            "tz": "UTC",
+            "tz_offset": "+0000",
+            "weekday": "Monday",
+            "weekday_number": "1",
+            "weeknumber": "05",
+            "year": "2019"
+        },
+        "ansible_default_ipv4": {
+            "address": "172.31.84.182",
+            "alias": "eth0",
+            "broadcast": "172.31.95.255",
+            "gateway": "172.31.80.1",
+            "interface": "eth0",
+            "macaddress": "12:83:e5:a1:7c:da",
+            "mtu": 9001,
+            "netmask": "255.255.240.0",
+            "network": "172.31.80.0",
+            "type": "ether"
+        },
+        "ansible_default_ipv6": {},
+        "ansible_device_links": {
+            "ids": {},
+            "labels": {},
+            "masters": {},
+            "uuids": {
+                "xvda2": [
+                    "88fd4d41-c180-4721-80c6-535249a4a2bb"
+                ]
+            }
+        },
+        "ansible_devices": {
+            "xvda": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {
+                    "xvda1": {
+                        "holders": [],
+                        "links": {
+                            "ids": [],
+                            "labels": [],
+                            "masters": [],
+                            "uuids": []
+                        },
+                        "sectors": "2048",
+                        "sectorsize": 512,
+                        "size": "1.00 MB",
+                        "start": "2048",
+                        "uuid": null
+                    },
+                    "xvda2": {
+                        "holders": [],
+                        "links": {
+                            "ids": [],
+                            "labels": [],
+                            "masters": [],
+                            "uuids": [
+                                "88fd4d41-c180-4721-80c6-535249a4a2bb"
+                            ]
+                        },
+                        "sectors": "20967391",
+                        "sectorsize": 512,
+                        "size": "10.00 GB",
+                        "start": "4096",
+                        "uuid": "88fd4d41-c180-4721-80c6-535249a4a2bb"
+                    }
+                },
+                "removable": "0",
+                "rotational": "0",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "deadline",
+                "sectors": "20971520",
+                "sectorsize": "512",
+                "size": "10.00 GB",
+                "support_discard": "0",
+                "vendor": null,
+                "virtual": 1
+            }
+        },
+        "ansible_distribution": "RedHat",
+        "ansible_distribution_file_parsed": true,
+        "ansible_distribution_file_path": "/etc/redhat-release",
+        "ansible_distribution_file_search_string": "Red Hat",
+        "ansible_distribution_file_variety": "RedHat",
+        "ansible_distribution_major_version": "7",
+        "ansible_distribution_release": "Maipo",
+        "ansible_distribution_version": "7.6",
+        "ansible_dns": {
+            "nameservers": [
+                "172.31.0.2"
+            ],
+            "search": [
+                "ec2.internal"
+            ]
+        },
+        "ansible_domain": "ec2.internal",
+        "ansible_effective_group_id": 1001,
+        "ansible_effective_user_id": 1001,
+        "ansible_env": {
+            "HOME": "/home/ansible_user",
+            "LANG": "en_US.UTF-8",
+            "LESSOPEN": "||/usr/bin/lesspipe.sh %s",
+            "LOGNAME": "ansible_user",
+            "LS_COLORS": "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=01;36:*.au=01;36:*.flac=01;36:*.mid=01;36:*.midi=01;36:*.mka=01;36:*.mp3=01;36:*.mpc=01;36:*.ogg=01;36:*.ra=01;36:*.wav=01;36:*.axa=01;36:*.oga=01;36:*.spx=01;36:*.xspf=01;36:",
+            "MAIL": "/var/mail/ansible_user",
+            "PATH": "/usr/local/bin:/usr/bin",
+            "PWD": "/home/ansible_user",
+            "SELINUX_LEVEL_REQUESTED": "",
+            "SELINUX_ROLE_REQUESTED": "",
+            "SELINUX_USE_CURRENT_RANGE": "",
+            "SHELL": "/bin/bash",
+            "SHLVL": "2",
+            "SSH_CLIENT": "172.31.89.23 47618 22",
+            "SSH_CONNECTION": "172.31.89.23 47618 172.31.84.182 22",
+            "SSH_TTY": "/dev/pts/1",
+            "TERM": "xterm",
+            "USER": "ansible_user",
+            "XDG_RUNTIME_DIR": "/run/user/1001",
+            "XDG_SESSION_ID": "10",
+            "_": "/usr/bin/python"
+        },
+        "ansible_eth0": {
+            "active": true,
+            "device": "eth0",
+            "features": {
+                "busy_poll": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "off [fixed]",
+                "hw_tc_offload": "off [fixed]",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "off [fixed]",
+                "netns_local": "off [fixed]",
+                "ntuple_filters": "off [fixed]",
+                "receive_hashing": "off [fixed]",
+                "rx_all": "off [fixed]",
+                "rx_checksumming": "on [fixed]",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "off [fixed]",
+                "rx_vlan_offload": "off [fixed]",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "off [fixed]",
+                "tx_checksum_ipv4": "on [fixed]",
+                "tx_checksum_ipv6": "off [requested on]",
+                "tx_checksum_sctp": "off [fixed]",
+                "tx_checksumming": "on",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "off [fixed]",
+                "tx_gre_segmentation": "off [fixed]",
+                "tx_gso_partial": "off [fixed]",
+                "tx_gso_robust": "on [fixed]",
+                "tx_ipip_segmentation": "off [fixed]",
+                "tx_lockless": "off [fixed]",
+                "tx_nocache_copy": "off",
+                "tx_scatter_gather": "on",
+                "tx_scatter_gather_fraglist": "off [fixed]",
+                "tx_sctp_segmentation": "off [fixed]",
+                "tx_sit_segmentation": "off [fixed]",
+                "tx_tcp6_segmentation": "off [requested on]",
+                "tx_tcp_ecn_segmentation": "off [fixed]",
+                "tx_tcp_mangleid_segmentation": "off",
+                "tx_tcp_segmentation": "on",
+                "tx_udp_tnl_csum_segmentation": "off [fixed]",
+                "tx_udp_tnl_segmentation": "off [fixed]",
+                "tx_vlan_offload": "off [fixed]",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "udp_fragmentation_offload": "off [fixed]",
+                "vlan_challenged": "off [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "ipv4": {
+                "address": "172.31.84.182",
+                "broadcast": "172.31.95.255",
+                "netmask": "255.255.240.0",
+                "network": "172.31.80.0"
+            },
+            "ipv6": [
+                {
+                    "address": "fe80::1083:e5ff:fea1:7cda",
+                    "prefix": "64",
+                    "scope": "link"
+                }
+            ],
+            "macaddress": "12:83:e5:a1:7c:da",
+            "module": "xen_netfront",
+            "mtu": 9001,
+            "pciid": "vif-0",
+            "promisc": false,
+            "timestamping": [
+                "rx_software",
+                "software"
+            ],
+            "type": "ether"
+        },
+        "ansible_fips": false,
+        "ansible_form_factor": "Other",
+        "ansible_fqdn": "ip-172-31-84-182.ec2.internal",
+        "ansible_hostname": "ip-172-31-84-182",
+        "ansible_interfaces": [
+            "lo",
+            "eth0"
+        ],
+        "ansible_is_chroot": true,
+        "ansible_iscsi_iqn": "",
+        "ansible_kernel": "3.10.0-957.el7.x86_64",
+        "ansible_lo": {
+            "active": true,
+            "device": "lo",
+            "features": {
+                "busy_poll": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on [fixed]",
+                "hw_tc_offload": "off [fixed]",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "on [fixed]",
+                "netns_local": "on [fixed]",
+                "ntuple_filters": "off [fixed]",
+                "receive_hashing": "off [fixed]",
+                "rx_all": "off [fixed]",
+                "rx_checksumming": "on [fixed]",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "off [fixed]",
+                "rx_vlan_offload": "off [fixed]",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "on [fixed]",
+                "tx_checksum_ipv4": "off [fixed]",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "on [fixed]",
+                "tx_checksumming": "on",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "off [fixed]",
+                "tx_gre_segmentation": "off [fixed]",
+                "tx_gso_partial": "off [fixed]",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipip_segmentation": "off [fixed]",
+                "tx_lockless": "on [fixed]",
+                "tx_nocache_copy": "off [fixed]",
+                "tx_scatter_gather": "on [fixed]",
+                "tx_scatter_gather_fraglist": "on [fixed]",
+                "tx_sctp_segmentation": "on",
+                "tx_sit_segmentation": "off [fixed]",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "on",
+                "tx_tcp_mangleid_segmentation": "on",
+                "tx_tcp_segmentation": "on",
+                "tx_udp_tnl_csum_segmentation": "off [fixed]",
+                "tx_udp_tnl_segmentation": "off [fixed]",
+                "tx_vlan_offload": "off [fixed]",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "udp_fragmentation_offload": "on",
+                "vlan_challenged": "on [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "ipv4": {
+                "address": "127.0.0.1",
+                "broadcast": "host",
+                "netmask": "255.0.0.0",
+                "network": "127.0.0.0"
+            },
+            "ipv6": [
+                {
+                    "address": "::1",
+                    "prefix": "128",
+                    "scope": "host"
+                }
+            ],
+            "mtu": 65536,
+            "promisc": false,
+            "timestamping": [
+                "rx_software",
+                "software"
+            ],
+            "type": "loopback"
+        },
+        "ansible_local": {},
+        "ansible_lsb": {},
+        "ansible_machine": "x86_64",
+        "ansible_machine_id": "5f450488c7e144d5af3f2d136c0d52a8",
+        "ansible_memfree_mb": 372,
+        "ansible_memory_mb": {
+            "nocache": {
+                "free": 811,
+                "used": 178
+            },
+            "real": {
+                "free": 372,
+                "total": 989,
+                "used": 617
+            },
+            "swap": {
+                "cached": 0,
+                "free": 0,
+                "total": 0,
+                "used": 0
+            }
+        },
+        "ansible_memtotal_mb": 989,
+        "ansible_mounts": [
+            {
+                "block_available": 2171681,
+                "block_size": 4096,
+                "block_total": 2618363,
+                "block_used": 446682,
+                "device": "/dev/xvda2",
+                "fstype": "xfs",
+                "inode_available": 5208398,
+                "inode_total": 5241840,
+                "inode_used": 33442,
+                "mount": "/",
+                "options": "rw,seclabel,relatime,attr2,inode64,noquota",
+                "size_available": 8895205376,
+                "size_total": 10724814848,
+                "uuid": "88fd4d41-c180-4721-80c6-535249a4a2bb"
+            }
+        ],
+        "ansible_nodename": "ip-172-31-84-182.ec2.internal",
+        "ansible_os_family": "RedHat",
+        "ansible_pkg_mgr": "yum",
+        "ansible_processor": [
+            "0",
+            "GenuineIntel",
+            "Intel(R) Xeon(R) CPU E5-2676 v3 @ 2.40GHz"
+        ],
+        "ansible_processor_cores": 1,
+        "ansible_processor_count": 1,
+        "ansible_processor_threads_per_core": 1,
+        "ansible_processor_vcpus": 1,
+        "ansible_product_name": "HVM domU",
+        "ansible_product_serial": "NA",
+        "ansible_product_uuid": "NA",
+        "ansible_product_version": "4.2.amazon",
+        "ansible_python": {
+            "executable": "/usr/bin/python",
+            "has_sslcontext": true,
+            "type": "CPython",
+            "version": {
+                "major": 2,
+                "micro": 5,
+                "minor": 7,
+                "releaselevel": "final",
+                "serial": 0
+            },
+            "version_info": [
+                2,
+                7,
+                5,
+                "final",
+                0
+            ]
+        },
+        "ansible_python_version": "2.7.5",
+        "ansible_real_group_id": 1001,
+        "ansible_real_user_id": 1001,
+        "ansible_selinux": {
+            "config_mode": "enforcing",
+            "mode": "enforcing",
+            "policyvers": 31,
+            "status": "enabled",
+            "type": "targeted"
+        },
+        "ansible_selinux_python_present": true,
+        "ansible_service_mgr": "systemd",
+        "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBHpNA3Ga09CX1ffgHWXLu7+mVsZVoHZaG06mCb7aduwVqOzWQ7mA2DbBEc5Qkgu5YBKDvDfqxP/cLa1FM5bYiS4=",
+        "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIOsqxxLcYbA9A4Vb596VKPfGm3h7J1nPlurjGG2IGY07",
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABAQDQ3OHJuTjsWxd/hwAHFn9WcN0/xL8vjdbxkhSWfSNTKqnhN3pilhkwso1oJDh5OD3Zot6ttpNi/tkot7z+W5mxQ3Hd2Mju/QupGz1+W1GxMWR0zLpbh+A53uvYkIZcVjm/R7glwZQ62swJF5YCa54onNLN1KtB3F+yWdIu6h1hDiJ89bPtstvcYk/DILJUuvdDvMyHGu1G93ot57GO61zsN0jOrTn0EsgUrlu9Wi6KBBiQlArDotVMQHvcyxEVoJqr5kVXK74psVnLGheXfx40vBxfmnFX2UeN7XFi+5CymXlLF8z8L4oudQ7WupGxl+WdBkdKJJ8ZNqo+mQZ8r5Pb",
+        "ansible_swapfree_mb": 0,
+        "ansible_swaptotal_mb": 0,
+        "ansible_system": "Linux",
+        "ansible_system_capabilities": [
+            ""
+        ],
+        "ansible_system_capabilities_enforced": "True",
+        "ansible_system_vendor": "Xen",
+        "ansible_uptime_seconds": 4884,
+        "ansible_user_dir": "/home/ansible_user",
+        "ansible_user_gecos": "",
+        "ansible_user_gid": 1001,
+        "ansible_user_id": "ansible_user",
+        "ansible_user_shell": "/bin/bash",
+        "ansible_user_uid": 1001,
+        "ansible_userspace_architecture": "x86_64",
+        "ansible_userspace_bits": "64",
+        "ansible_virtualization_role": "guest",
+        "ansible_virtualization_type": "xen",
+        "gather_subset": [
+            "all"
+        ],
+        "module_setup": true
+    },
+    "changed": false
+}
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 –m command - an 'uptime'
+Usage: ansible <host-pattern> [options]
+
+Define and run a single task 'playbook' against a set of hosts
+
+Options:
+  -a MODULE_ARGS, --args=MODULE_ARGS
+                        module arguments
+  --ask-vault-pass      ask for vault password
+  -B SECONDS, --background=SECONDS
+                        run asynchronously, failing after X seconds
+                        (default=N/A)
+  -C, --check           don't make any changes; instead, try to predict some
+                        of the changes that may occur
+  -D, --diff            when changing (small) files and templates, show the
+                        differences in those files; works great with --check
+  -e EXTRA_VARS, --extra-vars=EXTRA_VARS
+                        set additional variables as key=value or YAML/JSON, if
+                        filename prepend with @
+  -f FORKS, --forks=FORKS
+                        specify number of parallel processes to use
+                        (default=5)
+  -h, --help            show this help message and exit
+  -i INVENTORY, --inventory=INVENTORY, --inventory-file=INVENTORY
+                        specify inventory host path or comma separated host
+                        list. --inventory-file is deprecated
+  -l SUBSET, --limit=SUBSET
+                        further limit selected hosts to an additional pattern
+  --list-hosts          outputs a list of matching hosts; does not execute
+                        anything else
+  -m MODULE_NAME, --module-name=MODULE_NAME
+                        module name to execute (default=command)
+  -M MODULE_PATH, --module-path=MODULE_PATH
+                        prepend colon-separated path(s) to module library (def
+                        ault=[u'/home/ansible_user/.ansible/plugins/modules',
+                        u'/usr/share/ansible/plugins/modules'])
+  -o, --one-line        condense output
+  --playbook-dir=BASEDIR
+                        Since this tool does not use playbooks, use this as a
+                        subsitute playbook directory.This sets the relative
+                        path for many features including roles/ group_vars/
+                        etc.
+  -P POLL_INTERVAL, --poll=POLL_INTERVAL
+                        set the poll interval if using -B (default=15)
+  --syntax-check        perform a syntax check on the playbook, but do not
+                        execute it
+  -t TREE, --tree=TREE  log output to this directory
+  --vault-id=VAULT_IDS  the vault identity to use
+  --vault-password-file=VAULT_PASSWORD_FILES
+                        vault password file
+  -v, --verbose         verbose mode (-vvv for more, -vvvv to enable
+                        connection debugging)
+  --version             show program's version number and exit
+
+  Connection Options:
+    control as whom and how to connect to hosts
+
+    -k, --ask-pass      ask for connection password
+    --private-key=PRIVATE_KEY_FILE, --key-file=PRIVATE_KEY_FILE
+                        use this file to authenticate the connection
+    -u REMOTE_USER, --user=REMOTE_USER
+                        connect as this user (default=None)
+    -c CONNECTION, --connection=CONNECTION
+                        connection type to use (default=smart)
+    -T TIMEOUT, --timeout=TIMEOUT
+                        override the connection timeout in seconds
+                        (default=10)
+    --ssh-common-args=SSH_COMMON_ARGS
+                        specify common arguments to pass to sftp/scp/ssh (e.g.
+                        ProxyCommand)
+    --sftp-extra-args=SFTP_EXTRA_ARGS
+                        specify extra arguments to pass to sftp only (e.g. -f,
+                        -l)
+    --scp-extra-args=SCP_EXTRA_ARGS
+                        specify extra arguments to pass to scp only (e.g. -l)
+    --ssh-extra-args=SSH_EXTRA_ARGS
+                        specify extra arguments to pass to ssh only (e.g. -R)
+
+  Privilege Escalation Options:
+    control how and which user you become as on target hosts
+
+    -s, --sudo          run operations with sudo (nopasswd) (deprecated, use
+                        become)
+    -U SUDO_USER, --sudo-user=SUDO_USER
+                        desired sudo user (default=root) (deprecated, use
+                        become)
+    -S, --su            run operations with su (deprecated, use become)
+    -R SU_USER, --su-user=SU_USER
+                        run operations with su as this user (default=None)
+                        (deprecated, use become)
+    -b, --become        run operations with become (does not imply password
+                        prompting)
+    --become-method=BECOME_METHOD
+                        privilege escalation method to use (default=sudo),
+                        valid choices: [ sudo | su | pbrun | pfexec | doas |
+                        dzdo | ksu | runas | pmrun | enable | machinectl ]
+    --become-user=BECOME_USER
+                        run operations as this user (default=root)
+    --ask-sudo-pass     ask for sudo password (deprecated, use become)
+    --ask-su-pass       ask for su password (deprecated, use become)
+    -K, --ask-become-pass
+                        ask for privilege escalation password
+
+Some modules do not make sense in Ad-Hoc (include, meta, etc)
+ERROR! Extraneous options or arguments
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 –m command - a 'hostname'
+Usage: ansible <host-pattern> [options]
+
+Define and run a single task 'playbook' against a set of hosts
+
+Options:
+  -a MODULE_ARGS, --args=MODULE_ARGS
+                        module arguments
+  --ask-vault-pass      ask for vault password
+  -B SECONDS, --background=SECONDS
+                        run asynchronously, failing after X seconds
+                        (default=N/A)
+  -C, --check           don't make any changes; instead, try to predict some
+                        of the changes that may occur
+  -D, --diff            when changing (small) files and templates, show the
+                        differences in those files; works great with --check
+  -e EXTRA_VARS, --extra-vars=EXTRA_VARS
+                        set additional variables as key=value or YAML/JSON, if
+                        filename prepend with @
+  -f FORKS, --forks=FORKS
+                        specify number of parallel processes to use
+                        (default=5)
+  -h, --help            show this help message and exit
+  -i INVENTORY, --inventory=INVENTORY, --inventory-file=INVENTORY
+                        specify inventory host path or comma separated host
+                        list. --inventory-file is deprecated
+  -l SUBSET, --limit=SUBSET
+                        further limit selected hosts to an additional pattern
+  --list-hosts          outputs a list of matching hosts; does not execute
+                        anything else
+  -m MODULE_NAME, --module-name=MODULE_NAME
+                        module name to execute (default=command)
+  -M MODULE_PATH, --module-path=MODULE_PATH
+                        prepend colon-separated path(s) to module library (def
+                        ault=[u'/home/ansible_user/.ansible/plugins/modules',
+                        u'/usr/share/ansible/plugins/modules'])
+  -o, --one-line        condense output
+  --playbook-dir=BASEDIR
+                        Since this tool does not use playbooks, use this as a
+                        subsitute playbook directory.This sets the relative
+                        path for many features including roles/ group_vars/
+                        etc.
+  -P POLL_INTERVAL, --poll=POLL_INTERVAL
+                        set the poll interval if using -B (default=15)
+  --syntax-check        perform a syntax check on the playbook, but do not
+                        execute it
+  -t TREE, --tree=TREE  log output to this directory
+  --vault-id=VAULT_IDS  the vault identity to use
+  --vault-password-file=VAULT_PASSWORD_FILES
+                        vault password file
+  -v, --verbose         verbose mode (-vvv for more, -vvvv to enable
+                        connection debugging)
+  --version             show program's version number and exit
+
+  Connection Options:
+    control as whom and how to connect to hosts
+
+    -k, --ask-pass      ask for connection password
+    --private-key=PRIVATE_KEY_FILE, --key-file=PRIVATE_KEY_FILE
+                        use this file to authenticate the connection
+    -u REMOTE_USER, --user=REMOTE_USER
+                        connect as this user (default=None)
+    -c CONNECTION, --connection=CONNECTION
+                        connection type to use (default=smart)
+    -T TIMEOUT, --timeout=TIMEOUT
+                        override the connection timeout in seconds
+                        (default=10)
+    --ssh-common-args=SSH_COMMON_ARGS
+                        specify common arguments to pass to sftp/scp/ssh (e.g.
+                        ProxyCommand)
+    --sftp-extra-args=SFTP_EXTRA_ARGS
+                        specify extra arguments to pass to sftp only (e.g. -f,
+                        -l)
+    --scp-extra-args=SCP_EXTRA_ARGS
+                        specify extra arguments to pass to scp only (e.g. -l)
+    --ssh-extra-args=SSH_EXTRA_ARGS
+                        specify extra arguments to pass to ssh only (e.g. -R)
+
+  Privilege Escalation Options:
+    control how and which user you become as on target hosts
+
+    -s, --sudo          run operations with sudo (nopasswd) (deprecated, use
+                        become)
+    -U SUDO_USER, --sudo-user=SUDO_USER
+                        desired sudo user (default=root) (deprecated, use
+                        become)
+    -S, --su            run operations with su (deprecated, use become)
+    -R SU_USER, --su-user=SU_USER
+                        run operations with su as this user (default=None)
+                        (deprecated, use become)
+    -b, --become        run operations with become (does not imply password
+                        prompting)
+    --become-method=BECOME_METHOD
+                        privilege escalation method to use (default=sudo),
+                        valid choices: [ sudo | su | pbrun | pfexec | doas |
+                        dzdo | ksu | runas | pmrun | enable | machinectl ]
+    --become-user=BECOME_USER
+                        run operations as this user (default=root)
+    --ask-sudo-pass     ask for sudo password (deprecated, use become)
+    --ask-su-pass       ask for su password (deprecated, use become)
+    -K, --ask-become-pass
+                        ask for privilege escalation password
+
+Some modules do not make sense in Ad-Hoc (include, meta, etc)
+ERROR! Extraneous options or arguments
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 –m command - a'uptime'
+Usage: ansible <host-pattern> [options]
+
+Define and run a single task 'playbook' against a set of hosts
+
+Options:
+  -a MODULE_ARGS, --args=MODULE_ARGS
+                        module arguments
+  --ask-vault-pass      ask for vault password
+  -B SECONDS, --background=SECONDS
+                        run asynchronously, failing after X seconds
+                        (default=N/A)
+  -C, --check           don't make any changes; instead, try to predict some
+                        of the changes that may occur
+  -D, --diff            when changing (small) files and templates, show the
+                        differences in those files; works great with --check
+  -e EXTRA_VARS, --extra-vars=EXTRA_VARS
+                        set additional variables as key=value or YAML/JSON, if
+                        filename prepend with @
+  -f FORKS, --forks=FORKS
+                        specify number of parallel processes to use
+                        (default=5)
+  -h, --help            show this help message and exit
+  -i INVENTORY, --inventory=INVENTORY, --inventory-file=INVENTORY
+                        specify inventory host path or comma separated host
+                        list. --inventory-file is deprecated
+  -l SUBSET, --limit=SUBSET
+                        further limit selected hosts to an additional pattern
+  --list-hosts          outputs a list of matching hosts; does not execute
+                        anything else
+  -m MODULE_NAME, --module-name=MODULE_NAME
+                        module name to execute (default=command)
+  -M MODULE_PATH, --module-path=MODULE_PATH
+                        prepend colon-separated path(s) to module library (def
+                        ault=[u'/home/ansible_user/.ansible/plugins/modules',
+                        u'/usr/share/ansible/plugins/modules'])
+  -o, --one-line        condense output
+  --playbook-dir=BASEDIR
+                        Since this tool does not use playbooks, use this as a
+                        subsitute playbook directory.This sets the relative
+                        path for many features including roles/ group_vars/
+                        etc.
+  -P POLL_INTERVAL, --poll=POLL_INTERVAL
+                        set the poll interval if using -B (default=15)
+  --syntax-check        perform a syntax check on the playbook, but do not
+                        execute it
+  -t TREE, --tree=TREE  log output to this directory
+  --vault-id=VAULT_IDS  the vault identity to use
+  --vault-password-file=VAULT_PASSWORD_FILES
+                        vault password file
+  -v, --verbose         verbose mode (-vvv for more, -vvvv to enable
+                        connection debugging)
+  --version             show program's version number and exit
+
+  Connection Options:
+    control as whom and how to connect to hosts
+
+    -k, --ask-pass      ask for connection password
+    --private-key=PRIVATE_KEY_FILE, --key-file=PRIVATE_KEY_FILE
+                        use this file to authenticate the connection
+    -u REMOTE_USER, --user=REMOTE_USER
+                        connect as this user (default=None)
+    -c CONNECTION, --connection=CONNECTION
+                        connection type to use (default=smart)
+    -T TIMEOUT, --timeout=TIMEOUT
+                        override the connection timeout in seconds
+                        (default=10)
+    --ssh-common-args=SSH_COMMON_ARGS
+                        specify common arguments to pass to sftp/scp/ssh (e.g.
+                        ProxyCommand)
+    --sftp-extra-args=SFTP_EXTRA_ARGS
+                        specify extra arguments to pass to sftp only (e.g. -f,
+                        -l)
+    --scp-extra-args=SCP_EXTRA_ARGS
+                        specify extra arguments to pass to scp only (e.g. -l)
+    --ssh-extra-args=SSH_EXTRA_ARGS
+                        specify extra arguments to pass to ssh only (e.g. -R)
+
+  Privilege Escalation Options:
+    control how and which user you become as on target hosts
+
+    -s, --sudo          run operations with sudo (nopasswd) (deprecated, use
+                        become)
+    -U SUDO_USER, --sudo-user=SUDO_USER
+                        desired sudo user (default=root) (deprecated, use
+                        become)
+    -S, --su            run operations with su (deprecated, use become)
+    -R SU_USER, --su-user=SU_USER
+                        run operations with su as this user (default=None)
+                        (deprecated, use become)
+    -b, --become        run operations with become (does not imply password
+                        prompting)
+    --become-method=BECOME_METHOD
+                        privilege escalation method to use (default=sudo),
+                        valid choices: [ sudo | su | pbrun | pfexec | doas |
+                        dzdo | ksu | runas | pmrun | enable | machinectl ]
+    --become-user=BECOME_USER
+                        run operations as this user (default=root)
+    --ask-sudo-pass     ask for sudo password (deprecated, use become)
+    --ask-su-pass       ask for su password (deprecated, use become)
+    -K, --ask-become-pass
+                        ask for privilege escalation password
+
+Some modules do not make sense in Ad-Hoc (include, meta, etc)
+ERROR! Extraneous options or arguments
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 –m command - a uptime
+Usage: ansible <host-pattern> [options]
+
+Define and run a single task 'playbook' against a set of hosts
+
+Options:
+  -a MODULE_ARGS, --args=MODULE_ARGS
+                        module arguments
+  --ask-vault-pass      ask for vault password
+  -B SECONDS, --background=SECONDS
+                        run asynchronously, failing after X seconds
+                        (default=N/A)
+  -C, --check           don't make any changes; instead, try to predict some
+                        of the changes that may occur
+  -D, --diff            when changing (small) files and templates, show the
+                        differences in those files; works great with --check
+  -e EXTRA_VARS, --extra-vars=EXTRA_VARS
+                        set additional variables as key=value or YAML/JSON, if
+                        filename prepend with @
+  -f FORKS, --forks=FORKS
+                        specify number of parallel processes to use
+                        (default=5)
+  -h, --help            show this help message and exit
+  -i INVENTORY, --inventory=INVENTORY, --inventory-file=INVENTORY
+                        specify inventory host path or comma separated host
+                        list. --inventory-file is deprecated
+  -l SUBSET, --limit=SUBSET
+                        further limit selected hosts to an additional pattern
+  --list-hosts          outputs a list of matching hosts; does not execute
+                        anything else
+  -m MODULE_NAME, --module-name=MODULE_NAME
+                        module name to execute (default=command)
+  -M MODULE_PATH, --module-path=MODULE_PATH
+                        prepend colon-separated path(s) to module library (def
+                        ault=[u'/home/ansible_user/.ansible/plugins/modules',
+                        u'/usr/share/ansible/plugins/modules'])
+  -o, --one-line        condense output
+  --playbook-dir=BASEDIR
+                        Since this tool does not use playbooks, use this as a
+                        subsitute playbook directory.This sets the relative
+                        path for many features including roles/ group_vars/
+                        etc.
+  -P POLL_INTERVAL, --poll=POLL_INTERVAL
+                        set the poll interval if using -B (default=15)
+  --syntax-check        perform a syntax check on the playbook, but do not
+                        execute it
+  -t TREE, --tree=TREE  log output to this directory
+  --vault-id=VAULT_IDS  the vault identity to use
+  --vault-password-file=VAULT_PASSWORD_FILES
+                        vault password file
+  -v, --verbose         verbose mode (-vvv for more, -vvvv to enable
+                        connection debugging)
+  --version             show program's version number and exit
+
+  Connection Options:
+    control as whom and how to connect to hosts
+
+    -k, --ask-pass      ask for connection password
+    --private-key=PRIVATE_KEY_FILE, --key-file=PRIVATE_KEY_FILE
+                        use this file to authenticate the connection
+    -u REMOTE_USER, --user=REMOTE_USER
+                        connect as this user (default=None)
+    -c CONNECTION, --connection=CONNECTION
+                        connection type to use (default=smart)
+    -T TIMEOUT, --timeout=TIMEOUT
+                        override the connection timeout in seconds
+                        (default=10)
+    --ssh-common-args=SSH_COMMON_ARGS
+                        specify common arguments to pass to sftp/scp/ssh (e.g.
+                        ProxyCommand)
+    --sftp-extra-args=SFTP_EXTRA_ARGS
+                        specify extra arguments to pass to sftp only (e.g. -f,
+                        -l)
+    --scp-extra-args=SCP_EXTRA_ARGS
+                        specify extra arguments to pass to scp only (e.g. -l)
+    --ssh-extra-args=SSH_EXTRA_ARGS
+                        specify extra arguments to pass to ssh only (e.g. -R)
+
+  Privilege Escalation Options:
+    control how and which user you become as on target hosts
+
+    -s, --sudo          run operations with sudo (nopasswd) (deprecated, use
+                        become)
+    -U SUDO_USER, --sudo-user=SUDO_USER
+                        desired sudo user (default=root) (deprecated, use
+                        become)
+    -S, --su            run operations with su (deprecated, use become)
+    -R SU_USER, --su-user=SU_USER
+                        run operations with su as this user (default=None)
+                        (deprecated, use become)
+    -b, --become        run operations with become (does not imply password
+                        prompting)
+    --become-method=BECOME_METHOD
+                        privilege escalation method to use (default=sudo),
+                        valid choices: [ sudo | su | pbrun | pfexec | doas |
+                        dzdo | ksu | runas | pmrun | enable | machinectl ]
+    --become-user=BECOME_USER
+                        run operations as this user (default=root)
+    --ask-sudo-pass     ask for sudo password (deprecated, use become)
+    --ask-su-pass       ask for su password (deprecated, use become)
+    -K, --ask-become-pass
+                        ask for privilege escalation password
+
+Some modules do not make sense in Ad-Hoc (include, meta, etc)
+ERROR! Extraneous options or arguments
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 –m command -a hostname
+Usage: ansible <host-pattern> [options]
+
+Define and run a single task 'playbook' against a set of hosts
+
+Options:
+  -a MODULE_ARGS, --args=MODULE_ARGS
+                        module arguments
+  --ask-vault-pass      ask for vault password
+  -B SECONDS, --background=SECONDS
+                        run asynchronously, failing after X seconds
+                        (default=N/A)
+  -C, --check           don't make any changes; instead, try to predict some
+                        of the changes that may occur
+  -D, --diff            when changing (small) files and templates, show the
+                        differences in those files; works great with --check
+  -e EXTRA_VARS, --extra-vars=EXTRA_VARS
+                        set additional variables as key=value or YAML/JSON, if
+                        filename prepend with @
+  -f FORKS, --forks=FORKS
+                        specify number of parallel processes to use
+                        (default=5)
+  -h, --help            show this help message and exit
+  -i INVENTORY, --inventory=INVENTORY, --inventory-file=INVENTORY
+                        specify inventory host path or comma separated host
+                        list. --inventory-file is deprecated
+  -l SUBSET, --limit=SUBSET
+                        further limit selected hosts to an additional pattern
+  --list-hosts          outputs a list of matching hosts; does not execute
+                        anything else
+  -m MODULE_NAME, --module-name=MODULE_NAME
+                        module name to execute (default=command)
+  -M MODULE_PATH, --module-path=MODULE_PATH
+                        prepend colon-separated path(s) to module library (def
+                        ault=[u'/home/ansible_user/.ansible/plugins/modules',
+                        u'/usr/share/ansible/plugins/modules'])
+  -o, --one-line        condense output
+  --playbook-dir=BASEDIR
+                        Since this tool does not use playbooks, use this as a
+                        subsitute playbook directory.This sets the relative
+                        path for many features including roles/ group_vars/
+                        etc.
+  -P POLL_INTERVAL, --poll=POLL_INTERVAL
+                        set the poll interval if using -B (default=15)
+  --syntax-check        perform a syntax check on the playbook, but do not
+                        execute it
+  -t TREE, --tree=TREE  log output to this directory
+  --vault-id=VAULT_IDS  the vault identity to use
+  --vault-password-file=VAULT_PASSWORD_FILES
+                        vault password file
+  -v, --verbose         verbose mode (-vvv for more, -vvvv to enable
+                        connection debugging)
+  --version             show program's version number and exit
+
+  Connection Options:
+    control as whom and how to connect to hosts
+
+    -k, --ask-pass      ask for connection password
+    --private-key=PRIVATE_KEY_FILE, --key-file=PRIVATE_KEY_FILE
+                        use this file to authenticate the connection
+    -u REMOTE_USER, --user=REMOTE_USER
+                        connect as this user (default=None)
+    -c CONNECTION, --connection=CONNECTION
+                        connection type to use (default=smart)
+    -T TIMEOUT, --timeout=TIMEOUT
+                        override the connection timeout in seconds
+                        (default=10)
+    --ssh-common-args=SSH_COMMON_ARGS
+                        specify common arguments to pass to sftp/scp/ssh (e.g.
+                        ProxyCommand)
+    --sftp-extra-args=SFTP_EXTRA_ARGS
+                        specify extra arguments to pass to sftp only (e.g. -f,
+                        -l)
+    --scp-extra-args=SCP_EXTRA_ARGS
+                        specify extra arguments to pass to scp only (e.g. -l)
+    --ssh-extra-args=SSH_EXTRA_ARGS
+                        specify extra arguments to pass to ssh only (e.g. -R)
+
+  Privilege Escalation Options:
+    control how and which user you become as on target hosts
+
+    -s, --sudo          run operations with sudo (nopasswd) (deprecated, use
+                        become)
+    -U SUDO_USER, --sudo-user=SUDO_USER
+                        desired sudo user (default=root) (deprecated, use
+                        become)
+    -S, --su            run operations with su (deprecated, use become)
+    -R SU_USER, --su-user=SU_USER
+                        run operations with su as this user (default=None)
+                        (deprecated, use become)
+    -b, --become        run operations with become (does not imply password
+                        prompting)
+    --become-method=BECOME_METHOD
+                        privilege escalation method to use (default=sudo),
+                        valid choices: [ sudo | su | pbrun | pfexec | doas |
+                        dzdo | ksu | runas | pmrun | enable | machinectl ]
+    --become-user=BECOME_USER
+                        run operations as this user (default=root)
+    --ask-sudo-pass     ask for sudo password (deprecated, use become)
+    --ask-su-pass       ask for su password (deprecated, use become)
+    -K, --ask-become-pass
+                        ask for privilege escalation password
+
+Some modules do not make sense in Ad-Hoc (include, meta, etc)
+ERROR! Extraneous options or arguments
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 –m command -a 'uptime'
+Usage: ansible <host-pattern> [options]
+
+Define and run a single task 'playbook' against a set of hosts
+
+Options:
+  -a MODULE_ARGS, --args=MODULE_ARGS
+                        module arguments
+  --ask-vault-pass      ask for vault password
+  -B SECONDS, --background=SECONDS
+                        run asynchronously, failing after X seconds
+                        (default=N/A)
+  -C, --check           don't make any changes; instead, try to predict some
+                        of the changes that may occur
+  -D, --diff            when changing (small) files and templates, show the
+                        differences in those files; works great with --check
+  -e EXTRA_VARS, --extra-vars=EXTRA_VARS
+                        set additional variables as key=value or YAML/JSON, if
+                        filename prepend with @
+  -f FORKS, --forks=FORKS
+                        specify number of parallel processes to use
+                        (default=5)
+  -h, --help            show this help message and exit
+  -i INVENTORY, --inventory=INVENTORY, --inventory-file=INVENTORY
+                        specify inventory host path or comma separated host
+                        list. --inventory-file is deprecated
+  -l SUBSET, --limit=SUBSET
+                        further limit selected hosts to an additional pattern
+  --list-hosts          outputs a list of matching hosts; does not execute
+                        anything else
+  -m MODULE_NAME, --module-name=MODULE_NAME
+                        module name to execute (default=command)
+  -M MODULE_PATH, --module-path=MODULE_PATH
+                        prepend colon-separated path(s) to module library (def
+                        ault=[u'/home/ansible_user/.ansible/plugins/modules',
+                        u'/usr/share/ansible/plugins/modules'])
+  -o, --one-line        condense output
+  --playbook-dir=BASEDIR
+                        Since this tool does not use playbooks, use this as a
+                        subsitute playbook directory.This sets the relative
+                        path for many features including roles/ group_vars/
+                        etc.
+  -P POLL_INTERVAL, --poll=POLL_INTERVAL
+                        set the poll interval if using -B (default=15)
+  --syntax-check        perform a syntax check on the playbook, but do not
+                        execute it
+  -t TREE, --tree=TREE  log output to this directory
+  --vault-id=VAULT_IDS  the vault identity to use
+  --vault-password-file=VAULT_PASSWORD_FILES
+                        vault password file
+  -v, --verbose         verbose mode (-vvv for more, -vvvv to enable
+                        connection debugging)
+  --version             show program's version number and exit
+
+  Connection Options:
+    control as whom and how to connect to hosts
+
+    -k, --ask-pass      ask for connection password
+    --private-key=PRIVATE_KEY_FILE, --key-file=PRIVATE_KEY_FILE
+                        use this file to authenticate the connection
+    -u REMOTE_USER, --user=REMOTE_USER
+                        connect as this user (default=None)
+    -c CONNECTION, --connection=CONNECTION
+                        connection type to use (default=smart)
+    -T TIMEOUT, --timeout=TIMEOUT
+                        override the connection timeout in seconds
+                        (default=10)
+    --ssh-common-args=SSH_COMMON_ARGS
+                        specify common arguments to pass to sftp/scp/ssh (e.g.
+                        ProxyCommand)
+    --sftp-extra-args=SFTP_EXTRA_ARGS
+                        specify extra arguments to pass to sftp only (e.g. -f,
+                        -l)
+    --scp-extra-args=SCP_EXTRA_ARGS
+                        specify extra arguments to pass to scp only (e.g. -l)
+    --ssh-extra-args=SSH_EXTRA_ARGS
+                        specify extra arguments to pass to ssh only (e.g. -R)
+
+  Privilege Escalation Options:
+    control how and which user you become as on target hosts
+
+    -s, --sudo          run operations with sudo (nopasswd) (deprecated, use
+                        become)
+    -U SUDO_USER, --sudo-user=SUDO_USER
+                        desired sudo user (default=root) (deprecated, use
+                        become)
+    -S, --su            run operations with su (deprecated, use become)
+    -R SU_USER, --su-user=SU_USER
+                        run operations with su as this user (default=None)
+                        (deprecated, use become)
+    -b, --become        run operations with become (does not imply password
+                        prompting)
+    --become-method=BECOME_METHOD
+                        privilege escalation method to use (default=sudo),
+                        valid choices: [ sudo | su | pbrun | pfexec | doas |
+                        dzdo | ksu | runas | pmrun | enable | machinectl ]
+    --become-user=BECOME_USER
+                        run operations as this user (default=root)
+    --ask-sudo-pass     ask for sudo password (deprecated, use become)
+    --ask-su-pass       ask for su password (deprecated, use become)
+    -K, --ask-become-pass
+                        ask for privilege escalation password
+
+Some modules do not make sense in Ad-Hoc (include, meta, etc)
+ERROR! Extraneous options or arguments
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m command -a 'uptime'
+172.31.84.182 | CHANGED | rc=0 >>
+ 09:48:30 up  1:28,  2 users,  load average: 0.00, 0.01, 0.05
+
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m command -a 'hostname'
+172.31.84.182 | CHANGED | rc=0 >>
+ip-172-31-84-182.ec2.internal
+
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m shell -a 'ls -l>temp.txt'
+172.31.84.182 | CHANGED | rc=0 >>
+
+
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m command -a 'cat temp.txt'
+172.31.84.182 | CHANGED | rc=0 >>
+total 0
+-rw-rw-r--. 1 ansible_user ansible_user 0 Feb  4 09:50 temp.txt
+-rw-r--r--. 1 ansible_user ansible_user 0 Feb  4 09:36 text.txt
+
+[ansible_user@ip-172-31-89-23 ansible]$ Connection reset by 54.197.14.25 port 22
+ns
+Chandra@DESKTOP-4MSFD26 MINGW64 ~/Downloads (master)
+$ ssh -i "Hema_Webserver.pem" ec2-user@ec2-54-197-14-25.compute-1.amazonaws.com
+Last login: Mon Feb  4 09:06:29 2019 from 157.44.188.130
+[ec2-user@ip-172-31-89-23 ~]$ sudo -i
+[root@ip-172-31-89-23 ~]# su - ansible_user
+Last login: Mon Feb  4 09:08:06 UTC 2019 on pts/1
+[ansible_user@ip-172-31-89-23 ~]$ cd /etc/ansible/
+[ansible_user@ip-172-31-89-23 ansible]$ ls -lrt
+total 28
+drwxr-xr-x. 2 root root     6 Jan 18 01:34 roles
+-rw-r--r--. 1 root root  1016 Jan 18 01:34 hosts_old
+-rw-r--r--. 1 root root 20277 Jan 18 01:34 ansible.cfg
+-rw-r--r--. 1 root root    23 Feb  4 09:24 hosts
+-rw-r--r--. 1 root root     0 Feb  4 09:31 text.txt
+-rw-r--r--. 1 root root     0 Feb  4 09:36 file1.txt
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m user -a 'name=user1 password=12345 --become
+> ^C
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m user -a 'name=user1 password=12345' --become
+ [WARNING]: The input password appears not to have been hashed. The 'password' argument
+must be encrypted for this module to work properly.
+
+172.31.84.182 | CHANGED => {
+    "changed": true,
+    "comment": "",
+    "create_home": true,
+    "group": 1002,
+    "home": "/home/user1",
+    "name": "user1",
+    "password": "NOT_LOGGING_PASSWORD",
+    "shell": "/bin/bash",
+    "state": "present",
+    "system": false,
+    "uid": 1002
+}
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m command -a 'uptime'
+172.31.84.182 | CHANGED | rc=0 >>
+ 10:03:36 up  1:43,  3 users,  load average: 0.00, 0.01, 0.05
+
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m user -a 'name=user1 state=absent'--become
+172.31.84.182 | CHANGED => {
+    "changed": true,
+    "force": false,
+    "name": "user1",
+    "remove": false,
+    "state": "absent"
+}
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m command -a 'uptime'              172.31.84.182 | CHANGED | rc=0 >>
+ 10:05:01 up  1:44,  3 users,  load average: 0.00, 0.01, 0.05
+
+[ansible_user@ip-172-31-89-23 ansible]$ cat /etc/passwd | grep user1
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m command -a 'uptime'
+172.31.84.182 | CHANGED | rc=0 >>
+ 10:06:51 up  1:46,  3 users,  load average: 0.00, 0.01, 0.05
+
+[ansible_user@ip-172-31-89-23 ansible]$ cat /etc/passwd | grep ansible_user
+ansible_user:x:1001:1001::/home/ansible_user:/bin/bash
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m file -a 'dest=/home/ansible/file2.txt state=touch mode=600 owner=ansible_user group=ansible_user'
+172.31.84.182 | FAILED! => {
+    "changed": false,
+    "msg": "Error, could not touch target: [Errno 2] No such file or directory: '/home/ansible/file2.txt'",
+    "path": "/home/ansible/file2.txt",
+    "state": "absent"
+}
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m file -a 'dest=/home/ansible_user/file2.txt state=touch mode=600 owner=ansible_user group=ansible_user'
+172.31.84.182 | CHANGED => {
+    "changed": true,
+    "dest": "/home/ansible_user/file2.txt",
+    "gid": 1001,
+    "group": "ansible_user",
+    "mode": "0600",
+    "owner": "ansible_user",
+    "secontext": "unconfined_u:object_r:user_home_t:s0",
+    "size": 0,
+    "state": "file",
+    "uid": 1001
+}
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m file -a "dest=/home/ansible_user/test1 state=directory mode=755"
+172.31.84.182 | CHANGED => {
+    "changed": true,
+    "gid": 1001,
+    "group": "ansible_user",
+    "mode": "0755",
+    "owner": "ansible_user",
+    "path": "/home/ansible_user/test1",
+    "secontext": "unconfined_u:object_r:user_home_t:s0",
+    "size": 6,
+    "state": "directory",
+    "uid": 1001
+}
+[ansible_user@ip-172-31-89-23 ansible]$
+[ansible_user@ip-172-31-89-23 ansible]$ history
+[ansible_user@ip-172-31-89-23 ansible]$
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m file -a "dest=/home/ansible_user/file2.txt state=absent"
+172.31.84.182 | CHANGED => {
+    "changed": true,
+    "path": "/home/ansible_user/file2.txt",
+    "state": "absent"
+}
+[ansible_user@ip-172-31-89-23 ansible]$ touch sample.txt
+touch: cannot touch ‘sample.txt’: Permission denied
+[ansible_user@ip-172-31-89-23 ansible]$ sudo touch sample.txt
+[ansible_user@ip-172-31-89-23 ansible]$ ls -lrt
+total 28
+drwxr-xr-x. 2 root root     6 Jan 18 01:34 roles
+-rw-r--r--. 1 root root  1016 Jan 18 01:34 hosts_old
+-rw-r--r--. 1 root root 20277 Jan 18 01:34 ansible.cfg
+-rw-r--r--. 1 root root    23 Feb  4 09:24 hosts
+-rw-r--r--. 1 root root     0 Feb  4 09:31 text.txt
+-rw-r--r--. 1 root root     0 Feb  4 09:36 file1.txt
+-rw-r--r--. 1 root root     0 Feb  4 10:34 sample.txt
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m copy -a "src=sample.txt dest=/home/ansible_user/sample.txt"
+172.31.84.182 | CHANGED => {
+    "changed": true,
+    "checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "dest": "/home/ansible_user/sample.txt",
+    "gid": 1001,
+    "group": "ansible_user",
+    "md5sum": "d41d8cd98f00b204e9800998ecf8427e",
+    "mode": "0664",
+    "owner": "ansible_user",
+    "secontext": "unconfined_u:object_r:user_home_t:s0",
+    "size": 0,
+    "src": "/home/ansible_user/.ansible/tmp/ansible-tmp-1549276581.02-75801711567188/source",
+    "state": "file",
+    "uid": 1001
+}
+[ansible_user@ip-172-31-89-23 ansible]$
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m yum -a "name=git state=present" --become
+172.31.84.182 | CHANGED => {
+    "ansible_facts": {
+        "pkg_mgr": "yum"
+    },
+    "changed": true,
+    "msg": "",
+    "rc": 0,
+    "results": [
+        "Loaded plugins: amazon-id, rhui-lb, search-disabled-repos\nResolving Dependencies\n--> Running transaction check\n---> Package git.x86_64 0:1.8.3.1-20.el7 will be installed\n--> Processing Dependency: perl-Git = 1.8.3.1-20.el7 for package: git-1.8.3.1-20.el7.x86_64\n--> Processing Dependency: perl >= 5.008 for package: git-1.8.3.1-20.el7.x86_64\n--> Processing Dependency: /usr/bin/perl for package: git-1.8.3.1-20.el7.x86_64\n--> Processing Dependency: perl(Error) for package: git-1.8.3.1-20.el7.x86_64\n--> Processing Dependency: perl(Exporter) for package: git-1.8.3.1-20.el7.x86_64\n--> Processing Dependency: perl(File::Basename) for package: git-1.8.3.1-20.el7.x86_64\n--> Processing Dependency: perl(File::Copy) for package: git-1.8.3.1-20.el7.x86_64\n--> Processing Dependency: perl(File::Find) for package:git-1.8.3.1-20.el7.x86_64\n--> Processing Dependency: perl(File::Path) for package: git-1.8.3.1-20.el7.x86_64\n--> Processing Dependency: perl(File::Spec) for package: git-1.8.3.1-20.el7.x86_64\n--> Processing Dependency: perl(File::Temp) for package: git-1.8.3.1-20.el7.x86_64\n--> Processing Dependency: perl(File::stat) for package: git-1.8.3.1-20.el7.x86_64\n--> Processing Dependency: perl(Getopt::Long) for package: git-1.8.3.1-20.el7.x86_64\n--> Processing Dependency: perl(Git) for package: git-1.8.3.1-20.el7.x86_64\n--> Processing Dependency: perl(Term::ReadKey) for package: git-1.8.3.1-20.el7.x86_64\n--> Processing Dependency: perl(lib) for package: git-1.8.3.1-20.el7.x86_64\n--> Processing Dependency: perl(strict) for package: git-1.8.3.1-20.el7.x86_64\n--> Processing Dependency: perl(vars) for package: git-1.8.3.1-20.el7.x86_64\n--> Processing Dependency: perl(warnings) for package: git-1.8.3.1-20.el7.x86_64\n--> Running transaction check\n---> Package perl.x86_64 4:5.16.3-294.el7_6 will be installed\n--> Processing Dependency: perl-libs = 4:5.16.3-294.el7_6 for package: 4:perl-5.16.3-294.el7_6.x86_64\n--> Processing Dependency: perl(Scalar::Util) >= 1.10 for package: 4:perl-5.16.3-294.el7_6.x86_64\n--> Processing Dependency: perl(Socket) >= 1.3 for package: 4:perl-5.16.3-294.el7_6.x86_64\n--> Processing Dependency: perl(Carp) for package: 4:perl-5.16.3-294.el7_6.x86_64\n--> Processing Dependency: perl(Filter::Util::Call) for package: 4:perl-5.16.3-294.el7_6.x86_64\n--> Processing Dependency: perl(Pod::Simple::Search) for package:4:perl-5.16.3-294.el7_6.x86_64\n--> Processing Dependency: perl(Pod::Simple::XHTML) for package: 4:perl-5.16.3-294.el7_6.x86_64\n--> Processing Dependency: perl(Scalar::Util) for package: 4:perl-5.16.3-294.el7_6.x86_64\n--> Processing Dependency: perl(Socket) for package: 4:perl-5.16.3-294.el7_6.x86_64\n--> Processing Dependency: perl(Storable) for package: 4:perl-5.16.3-294.el7_6.x86_64\n--> Processing Dependency: perl(Time::HiRes) for package: 4:perl-5.16.3-294.el7_6.x86_64\n--> Processing Dependency: perl(Time::Local) for package: 4:perl-5.16.3-294.el7_6.x86_64\n--> Processing Dependency: perl(constant) for package: 4:perl-5.16.3-294.el7_6.x86_64\n--> Processing Dependency: perl(threads) for package: 4:perl-5.16.3-294.el7_6.x86_64\n--> Processing Dependency: perl(threads::shared) for package: 4:perl-5.16.3-294.el7_6.x86_64\n--> Processing Dependency: perl-libs for package: 4:perl-5.16.3-294.el7_6.x86_64\n--> Processing Dependency: perl-macros for package: 4:perl-5.16.3-294.el7_6.x86_64\n--> Processing Dependency: libperl.so()(64bit) for package: 4:perl-5.16.3-294.el7_6.x86_64\n---> Package perl-Error.noarch 1:0.17020-2.el7 will be installed\n---> Package perl-Exporter.noarch 0:5.68-3.el7 will be installed\n---> Package perl-File-Path.noarch 0:2.09-2.el7 will be installed\n---> Package perl-File-Temp.noarch 0:0.23.01-3.el7 will be installed\n---> Package perl-Getopt-Long.noarch 0:2.40-3.el7 will be installed\n--> Processing Dependency: perl(Pod::Usage) >= 1.14 for package: perl-Getopt-Long-2.40-3.el7.noarch\n--> Processing Dependency: perl(Text::ParseWords) for package: perl-Getopt-Long-2.40-3.el7.noarch\n---> Package perl-Git.noarch 0:1.8.3.1-20.el7 will be installed\n---> Package perl-PathTools.x86_64 0:3.40-5.el7will be installed\n---> Package perl-TermReadKey.x86_64 0:2.30-20.el7 will be installed\n--> Running transaction check\n---> Package perl-Carp.noarch 0:1.26-244.el7 will be installed\n---> Package perl-Filter.x86_64 0:1.49-3.el7 will be installed\n---> Package perl-Pod-Simple.noarch 1:3.28-4.el7 will be installed\n--> Processing Dependency: perl(Pod::Escapes) >= 1.04 for package: 1:perl-Pod-Simple-3.28-4.el7.noarch\n--> Processing Dependency: perl(Encode)for package: 1:perl-Pod-Simple-3.28-4.el7.noarch\n---> Package perl-Pod-Usage.noarch 0:1.63-3.el7 will be installed\n--> Processing Dependency: perl(Pod::Text) >= 3.15 for package: perl-Pod-Usage-1.63-3.el7.noarch\n--> Processing Dependency: perl-Pod-Perldoc for package: perl-Pod-Usage-1.63-3.el7.noarch\n---> Package perl-Scalar-List-Utils.x86_64 0:1.27-248.el7 will be installed\n---> Package perl-Socket.x86_64 0:2.010-4.el7 will be installed\n---> Package perl-Storable.x86_64 0:2.45-3.el7 will be installed\n---> Package perl-Text-ParseWords.noarch 0:3.29-4.el7 will be installed\n---> Package perl-Time-HiRes.x86_64 4:1.9725-3.el7 will be installed\n---> Package perl-Time-Local.noarch 0:1.2300-2.el7 will be installed\n---> Package perl-constant.noarch 0:1.27-2.el7 will be installed\n---> Package perl-libs.x86_64 4:5.16.3-294.el7_6 will be installed\n---> Package perl-macros.x86_64 4:5.16.3-294.el7_6 will beinstalled\n---> Package perl-threads.x86_64 0:1.87-4.el7 will be installed\n---> Package perl-threads-shared.x86_64 0:1.43-6.el7 will be installed\n--> Running transaction check\n--->Package perl-Encode.x86_64 0:2.51-7.el7 will be installed\n---> Package perl-Pod-Escapes.noarch 1:1.04-294.el7_6 will be installed\n---> Package perl-Pod-Perldoc.noarch 0:3.20-4.el7 will be installed\n--> Processing Dependency: perl(HTTP::Tiny) for package: perl-Pod-Perldoc-3.20-4.el7.noarch\n--> Processing Dependency: perl(parent) for package: perl-Pod-Perldoc-3.20-4.el7.noarch\n---> Package perl-podlators.noarch 0:2.5.1-3.el7 will be installed\n--> Running transaction check\n---> Package perl-HTTP-Tiny.noarch 0:0.033-3.el7 will be installed\n---> Package perl-parent.noarch 1:0.225-244.el7 will be installed\n--> Finished Dependency Resolution\n\nDependencies Resolved\n\n================================================================================\n Package          Arch   Version         Repository                       Size\n================================================================================\nInstalling:\n git              x86_64 1.8.3.1-20.el7  rhui-REGION-rhel-server-releases4.4 M\nInstalling for dependencies:\n perl             x86_64 4:5.16.3-294.el7_6\n                                        rhui-REGION-rhel-server-releases 8.0 M\n perl-Carp        noarch 1.26-244.el7    rhui-REGION-rhel-server-releases  19 k\n perl-Encode      x86_64 2.51-7.el7      rhui-REGION-rhel-server-releases 1.5 M\n perl-Error       noarch 1:0.17020-2.el7 rhui-REGION-rhel-server-releases  32 k\n perl-Exporter    noarch 5.68-3.el7      rhui-REGION-rhel-server-releases  28 k\n perl-File-Path   noarch 2.09-2.el7      rhui-REGION-rhel-server-releases  27 k\n perl-File-Temp   noarch 0.23.01-3.el7   rhui-REGION-rhel-server-releases  56 k\n perl-Filter      x86_64 1.49-3.el7      rhui-REGION-rhel-server-releases  76 k\n perl-Getopt-Long noarch 2.40-3.el7      rhui-REGION-rhel-server-releases  56 k\n perl-Git        noarch 1.8.3.1-20.el7  rhui-REGION-rhel-server-releases  55 k\n perl-HTTP-Tiny   noarch 0.033-3.el7     rhui-REGION-rhel-server-releases  38 k\n perl-PathTools   x86_64 3.40-5.el7     rhui-REGION-rhel-server-releases  83 k\n perl-Pod-Escapes noarch 1:1.04-294.el7_6\n                                        rhui-REGION-rhel-server-releases  51 k\n perl-Pod-Perldocnoarch 3.20-4.el7      rhui-REGION-rhel-server-releases  87 k\n perl-Pod-Simple  noarch 1:3.28-4.el7    rhui-REGION-rhel-server-releases 216 k\n perl-Pod-Usage   noarch 1.63-3.el7     rhui-REGION-rhel-server-releases  27 k\n perl-Scalar-List-Utils\n                  x86_64 1.27-248.el7    rhui-REGION-rhel-server-releases  36 k\n perl-Socket      x86_64 2.010-4.el7    rhui-REGION-rhel-server-releases  49 k\n perl-Storable    x86_64 2.45-3.el7      rhui-REGION-rhel-server-releases  77 k\n perl-TermReadKey x86_64 2.30-20.el7     rhui-REGION-rhel-server-releases  31 k\n perl-Text-ParseWords\n                  noarch 3.29-4.el7      rhui-REGION-rhel-server-releases  14 k\n perl-Time-HiRes  x86_64 4:1.9725-3.el7  rhui-REGION-rhel-server-releases  45 k\n perl-Time-Local  noarch 1.2300-2.el7    rhui-REGION-rhel-server-releases  24 k\n perl-constant    noarch 1.27-2.el7      rhui-REGION-rhel-server-releases  19 k\n perl-libs        x86_64 4:5.16.3-294.el7_6\n                                         rhui-REGION-rhel-server-releases 688 k\n perl-macros      x86_64 4:5.16.3-294.el7_6\n                                        rhui-REGION-rhel-server-releases  44 k\n perl-parent      noarch 1:0.225-244.el7 rhui-REGION-rhel-server-releases  12 k\n perl-podlators   noarch 2.5.1-3.el7     rhui-REGION-rhel-server-releases 112 k\n perl-threads     x86_64 1.87-4.el7      rhui-REGION-rhel-server-releases  49 k\n perl-threads-shared\n                  x86_64 1.43-6.el7      rhui-REGION-rhel-server-releases  39 k\n\nTransaction Summary\n================================================================================\nInstall  1 Package (+30 Dependent packages)\n\nTotal download size: 16 M\nInstalled size: 59 M\nDownloading packages:\n--------------------------------------------------------------------------------\nTotal                                              12 MB/s |  16 MB  00:01     \nRunning transaction check\nRunning transaction test\nTransaction test succeeded\nRunning transaction\n  Installing :1:perl-parent-0.225-244.el7.noarch                          1/31 \n  Installing : perl-HTTP-Tiny-0.033-3.el7.noarch                           2/31 \n  Installing : perl-podlators-2.5.1-3.el7.noarch                           3/31 \n  Installing : perl-Pod-Perldoc-3.20-4.el7.noarch                          4/31 \n  Installing : 1:perl-Pod-Escapes-1.04-294.el7_6.noarch                    5/31 \n  Installing : perl-Encode-2.51-7.el7.x86_64                              6/31 \n  Installing : perl-Text-ParseWords-3.29-4.el7.noarch                     7/31 \n  Installing : perl-Pod-Usage-1.63-3.el7.noarch                            8/31 \n  Installing : 4:perl-libs-5.16.3-294.el7_6.x86_64                         9/31 \n  Installing: 4:perl-macros-5.16.3-294.el7_6.x86_64                      10/31 \n  Installing : perl-Storable-2.45-3.el7.x86_64                            11/31 \n  Installing : perl-Exporter-5.68-3.el7.noarch                            12/31 \n  Installing : perl-constant-1.27-2.el7.noarch                            13/31 \n  Installing : perl-Time-Local-1.2300-2.el7.noarch                       14/31 \n  Installing : perl-Socket-2.010-4.el7.x86_64                            15/31 \n  Installing : perl-Carp-1.26-244.el7.noarch                             16/31 \n  Installing : 4:perl-Time-HiRes-1.9725-3.el7.x86_64                      17/31 \n Installing : perl-PathTools-3.40-5.el7.x86_64                           18/31 \n  Installing : perl-Scalar-List-Utils-1.27-248.el7.x86_64                 19/31 \n  Installing : perl-File-Temp-0.23.01-3.el7.noarch                        20/31 \n  Installing : perl-File-Path-2.09-2.el7.noarch                           21/31 \n  Installing : perl-threads-shared-1.43-6.el7.x86_64                      22/31 \n  Installing : perl-threads-1.87-4.el7.x86_64                            23/31 \n  Installing : 1:perl-Pod-Simple-3.28-4.el7.noarch                       24/31 \n  Installing : perl-Filter-1.49-3.el7.x86_64                             25/31 \n  Installing : perl-Getopt-Long-2.40-3.el7.noarch                         26/31 \n  Installing : 4:perl-5.16.3-294.el7_6.x86_64                             27/31 \n  Installing : 1:perl-Error-0.17020-2.el7.noarch                          28/31 \n  Installing : perl-TermReadKey-2.30-20.el7.x86_64                        29/31 \n  Installing : perl-Git-1.8.3.1-20.el7.noarch                             30/31 \n  Installing : git-1.8.3.1-20.el7.x86_64                                  31/31 \n  Verifying  : perl-HTTP-Tiny-0.033-3.el7.noarch                          1/31 \n  Verifying  : perl-threads-shared-1.43-6.el7.x86_64                      2/31 \n  Verifying  : perl-Storable-2.45-3.el7.x86_64                            3/31 \n  Verifying  : 1:perl-Pod-Escapes-1.04-294.el7_6.noarch                    4/31 \n  Verifying  : perl-Exporter-5.68-3.el7.noarch                             5/31 \n  Verifying  : perl-constant-1.27-2.el7.noarch                             6/31 \n  Verifying  : perl-PathTools-3.40-5.el7.x86_64                            7/31 \n  Verifying  : 1:perl-parent-0.225-244.el7.noarch                          8/31 \n  Verifying  : perl-TermReadKey-2.30-20.el7.x86_64                         9/31 \n  Verifying  : 4:perl-libs-5.16.3-294.el7_6.x86_64                        10/31 \n  Verifying  : perl-File-Temp-0.23.01-3.el7.noarch                       11/31 \n  Verifying  : perl-Git-1.8.3.1-20.el7.noarch                            12/31 \n  Verifying  : perl-Time-Local-1.2300-2.el7.noarch                        13/31 \n  Verifying  : 4:perl-macros-5.16.3-294.el7_6.x86_64                      14/31 \n  Verifying  : perl-Socket-2.010-4.el7.x86_64                             15/31 \n  Verifying  :perl-Carp-1.26-244.el7.noarch                              16/31 \n  Verifying  : 1:perl-Error-0.17020-2.el7.noarch                          17/31 \n  Verifying  : git-1.8.3.1-20.el7.x86_64                                  18/31 \n  Verifying  : 4:perl-Time-HiRes-1.9725-3.el7.x86_64                      19/31 \n  Verifying  : perl-Scalar-List-Utils-1.27-248.el7.x86_64                 20/31 \n  Verifying  : perl-Pod-Usage-1.63-3.el7.noarch                          21/31 \n  Verifying  : perl-Encode-2.51-7.el7.x86_64                              22/31 \n  Verifying  : perl-Pod-Perldoc-3.20-4.el7.noarch                         23/31 \n  Verifying  : perl-podlators-2.5.1-3.el7.noarch                          24/31 \n  Verifying : perl-File-Path-2.09-2.el7.noarch                           25/31 \n  Verifying  : perl-threads-1.87-4.el7.x86_64                             26/31 \n  Verifying  : 1:perl-Pod-Simple-3.28-4.el7.noarch                        27/31 \n  Verifying  : perl-Filter-1.49-3.el7.x86_64                              28/31 \n  Verifying  : perl-Getopt-Long-2.40-3.el7.noarch                        29/31 \n  Verifying  : perl-Text-ParseWords-3.29-4.el7.noarch                    30/31 \n  Verifying  : 4:perl-5.16.3-294.el7_6.x86_64                            31/31 \n\nInstalled:\n  git.x86_64 0:1.8.3.1-20.el7                                                  \n\nDependency Installed:\n  perl.x86_64 4:5.16.3-294.el7_6                                               \n  perl-Carp.noarch 0:1.26-244.el7                                              \n  perl-Encode.x86_64 0:2.51-7.el7                                              \n  perl-Error.noarch 1:0.17020-2.el7                                             \n perl-Exporter.noarch 0:5.68-3.el7                                             \n  perl-File-Path.noarch 0:2.09-2.el7                                            \n  perl-File-Temp.noarch 0:0.23.01-3.el7                                         \n  perl-Filter.x86_64 0:1.49-3.el7                                               \n  perl-Getopt-Long.noarch 0:2.40-3.el7                                         \n  perl-Git.noarch 0:1.8.3.1-20.el7                                             \n  perl-HTTP-Tiny.noarch 0:0.033-3.el7                                          \n  perl-PathTools.x86_64 0:3.40-5.el7                                           \n  perl-Pod-Escapes.noarch 1:1.04-294.el7_6                                      \n  perl-Pod-Perldoc.noarch 0:3.20-4.el7                                          \n  perl-Pod-Simple.noarch 1:3.28-4.el7                                           \n  perl-Pod-Usage.noarch 0:1.63-3.el7                                            \n  perl-Scalar-List-Utils.x86_64 0:1.27-248.el7                                  \n  perl-Socket.x86_64 0:2.010-4.el7                                             \n  perl-Storable.x86_64 0:2.45-3.el7                                            \n  perl-TermReadKey.x86_64 0:2.30-20.el7                                        \n  perl-Text-ParseWords.noarch 0:3.29-4.el7                                     \n  perl-Time-HiRes.x86_64 4:1.9725-3.el7                                        \n  perl-Time-Local.noarch 0:1.2300-2.el7                                         \n  perl-constant.noarch 0:1.27-2.el7                                             \n  perl-libs.x86_64 4:5.16.3-294.el7_6                                           \n  perl-macros.x86_64 4:5.16.3-294.el7_6                                         \n  perl-parent.noarch 1:0.225-244.el7                                           \n  perl-podlators.noarch 0:2.5.1-3.el7                                          \n  perl-threads.x86_64 0:1.87-4.el7                                             \n  perl-threads-shared.x86_64 0:1.43-6.el7                                      \n\nComplete!\n"
+    ]
+}
+[ansible_user@ip-172-31-89-23 ansible]$ ansibel group1 -m yum -a "name=git state=latest"
+-bash: ansibel: command not found
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m yum -a "name=git state=latest"
+172.31.84.182 | FAILED! => {
+    "ansible_facts": {
+        "pkg_mgr": "yum"
+    },
+    "changed": false,
+    "msg": "Repo rhui-REGION-client-config-server-7 forced skip_if_unavailable=True due to: /etc/pki/rhui/cdn.redhat.com-chain.crt\nRepo rhui-REGION-client-config-server-7 forced skip_if_unavailable=True due to: /etc/pki/rhui/product/rhui-client-config-server-7.crt\nRepo rhui-REGION-client-config-server-7 forced skip_if_unavailable=True due to: /etc/pki/rhui/rhui-client-config-server-7.key\nRepo rhui-REGION-rhel-server-releases forced skip_if_unavailable=True due to: /etc/pki/rhui/cdn.redhat.com-chain.crt\nRepo rhui-REGION-rhel-server-releases forced skip_if_unavailable=True due to: /etc/pki/rhui/product/content-rhel7.crt\nRepo rhui-REGION-rhel-server-releases forced skip_if_unavailable=True due to: /etc/pki/rhui/content-rhel7.key\nRepo rhui-REGION-rhel-server-rh-common forced skip_if_unavailable=True due to: /etc/pki/rhui/cdn.redhat.com-chain.crt\nRepo rhui-REGION-rhel-server-rh-common forced skip_if_unavailable=True due to: /etc/pki/rhui/product/content-rhel7.crt\nRepo rhui-REGION-rhel-server-rh-common forced skip_if_unavailable=True due to: /etc/pki/rhui/content-rhel7.key\n\n\nCould not contact any CDS load balancers: rhui2-cds01.us-east-1.aws.ce.redhat.com, rhui2-cds02.us-east-1.aws.ce.redhat.com.\n",
+    "rc": 1,
+    "results": []
+}
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m yum -a "name=git state=latest" --become
+172.31.84.182 | SUCCESS => {
+    "ansible_facts": {
+        "pkg_mgr": "yum"
+    },
+    "changed": false,
+    "msg": "",
+    "rc": 0,
+    "results": [
+        "All packages providing git are up to date",
+        ""
+    ]
+}
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m yum -a "name=httpd state=present" --become
+172.31.84.182 | CHANGED => {
+    "ansible_facts": {
+        "pkg_mgr": "yum"
+    },
+    "changed": true,
+    "msg": "",
+    "rc": 0,
+    "results": [
+        "Loaded plugins: amazon-id, rhui-lb, search-disabled-repos\nResolving Dependencies\n--> Running transaction check\n---> Package httpd.x86_64 0:2.4.6-88.el7 will be installed\n--> Processing Dependency: httpd-tools = 2.4.6-88.el7 for package: httpd-2.4.6-88.el7.x86_64\n--> Processing Dependency: system-logos >= 7.92.1-1 for package: httpd-2.4.6-88.el7.x86_64\n--> Processing Dependency: /etc/mime.types for package: httpd-2.4.6-88.el7.x86_64\n--> Processing Dependency: libapr-1.so.0()(64bit) for package: httpd-2.4.6-88.el7.x86_64\n--> Processing Dependency: libaprutil-1.so.0()(64bit) for package: httpd-2.4.6-88.el7.x86_64\n--> Running transaction check\n---> Package apr.x86_64 0:1.4.8-3.el7_4.1 will be installed\n---> Package apr-util.x86_64 0:1.5.2-6.el7 will be installed\n---> Package httpd-tools.x86_64 0:2.4.6-88.el7 will be installed\n---> Package mailcap.noarch 0:2.1.41-2.el7 will be installed\n---> Package redhat-logos.noarch 0:70.0.3-7.el7 will be installed\n--> Finished Dependency Resolution\n\nDependencies Resolved\n\n================================================================================\n Package       Arch    Version          Repository                         Size\n================================================================================\nInstalling:\n httpd         x86_64  2.4.6-88.el7    rhui-REGION-rhel-server-releases  1.2 M\nInstalling for dependencies:\n apr           x86_64  1.4.8-3.el7_4.1  rhui-REGION-rhel-server-releases  103 k\n apr-util      x86_64  1.5.2-6.el7      rhui-REGION-rhel-server-releases   92 k\n httpd-tools   x86_64  2.4.6-88.el7     rhui-REGION-rhel-server-releases   90 k\n mailcap       noarch  2.1.41-2.el7     rhui-REGION-rhel-server-releases   31 k\n redhat-logos  noarch  70.0.3-7.el7     rhui-REGION-rhel-server-releases   13 M\n\nTransaction Summary\n================================================================================\nInstall  1 Package (+5 Dependent packages)\n\nTotal download size: 14 M\nInstalled size: 18 M\nDownloading packages:\n--------------------------------------------------------------------------------\nTotal                                               14 MB/s |  14 MB 00:01     \nRunning transaction check\nRunning transaction test\nTransaction test succeeded\nRunning transaction\n  Installing : apr-1.4.8-3.el7_4.1.x86_64                                   1/6 \n  Installing : apr-util-1.5.2-6.el7.x86_64                                 2/6 \n  Installing : httpd-tools-2.4.6-88.el7.x86_64                              3/6 \n  Installing : redhat-logos-70.0.3-7.el7.noarch                             4/6 \n  Installing : mailcap-2.1.41-2.el7.noarch                                 5/6 \n  Installing : httpd-2.4.6-88.el7.x86_64                                    6/6 \n  Verifying  : httpd-tools-2.4.6-88.el7.x86_64                              1/6 \n  Verifying  : mailcap-2.1.41-2.el7.noarch                                 2/6 \n  Verifying  : apr-util-1.5.2-6.el7.x86_64                                  3/6 \n Verifying  : httpd-2.4.6-88.el7.x86_64                                    4/6 \n  Verifying  : redhat-logos-70.0.3-7.el7.noarch                             5/6 \n  Verifying  : apr-1.4.8-3.el7_4.1.x86_64                                   6/6 \n\nInstalled:\n  httpd.x86_64 0:2.4.6-88.el7                                                   \n\nDependency Installed:\n  apr.x86_64 0:1.4.8-3.el7_4.1              apr-util.x86_64 0:1.5.2-6.el7       \n  httpd-tools.x86_64 0:2.4.6-88.el7        mailcap.noarch 0:2.1.41-2.el7       \n  redhat-logos.noarch 0:70.0.3-7.el7       \n\nComplete!\n"
+    ]
+}
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m yum -a "name=maven state=absent" --become
+172.31.84.182 | SUCCESS => {
+    "ansible_facts": {
+        "pkg_mgr": "yum"
+    },
+    "changed": false,
+    "msg": "",
+    "rc": 0,
+    "results": [
+        "maven is not installed"
+    ]
+}
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m yum -a "name=maven state=present" --become
+172.31.84.182 | FAILED! => {
+    "ansible_facts": {
+        "pkg_mgr": "yum"
+    },
+    "changed": false,
+    "msg": "No package matching 'maven' found available, installed or updated",
+    "rc": 126,
+    "results": [
+        "No package matching 'maven' found available, installed or updated"
+    ]
+}
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m yum -a "name=maven state=latest" --become
+172.31.84.182 | FAILED! => {
+    "ansible_facts": {
+        "pkg_mgr": "yum"
+    },
+    "changed": false,
+    "msg": "No package matching 'maven' found available, installed or updated",
+    "rc": 126,
+    "results": [
+        "No package matching 'maven' found available, installed or updated"
+    ]
+}
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m yum -a "name=maven state=install" --become
+172.31.84.182 | FAILED! => {
+    "ansible_facts": {
+        "pkg_mgr": "yum"
+    },
+    "changed": false,
+    "msg": "value of state must be one of: absent, installed, latest, present, removed, got: install"
+}
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m yum -a "name=maven state=installed" --become
+172.31.84.182 | FAILED! => {
+    "ansible_facts": {
+        "pkg_mgr": "yum"
+    },
+    "changed": false,
+    "msg": "No package matching 'maven' found available, installed or updated",
+    "rc": 126,
+    "results": [
+        "No package matching 'maven' found available, installed or updated"
+    ]
+}
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m yum -a "name=maven state=got" --become
+172.31.84.182 | FAILED! => {
+    "ansible_facts": {
+        "pkg_mgr": "yum"
+    },
+    "changed": false,
+    "msg": "value of state must be one of: absent, installed, latest, present, removed, got: got"
+}
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m yum -a "name=httpd service=start" --become
+172.31.84.182 | FAILED! => {
+    "ansible_facts": {
+        "pkg_mgr": "yum"
+    },
+    "changed": false,
+    "msg": "Unsupported parameters for (yum) module: service Supported parameters include: allow_downgrade, autoremove, bugfix, conf_file, disable_excludes, disable_gpg_check, disable_plugin, disablerepo, download_only, enable_plugin, enablerepo, exclude, install_repoquery, installroot, list, name, releasever, security, skip_broken, state, update_cache, update_only, use_backend, validate_certs"
+}
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m yum -a "name=httpd service=started" --become
+172.31.84.182 | FAILED! => {
+    "ansible_facts": {
+        "pkg_mgr": "yum"
+    },
+    "changed": false,
+    "msg": "Unsupported parameters for (yum) module: service Supported parameters include: allow_downgrade, autoremove, bugfix, conf_file, disable_excludes, disable_gpg_check, disable_plugin, disablerepo, download_only, enable_plugin, enablerepo, exclude, install_repoquery, installroot, list, name, releasever, security, skip_broken, state, update_cache, update_only, use_backend, validate_certs"
+}
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m service -a "name=httpd state=started" --become
+172.31.84.182 | CHANGED => {
+    "changed": true,
+    "name": "httpd",
+    "state": "started",
+    "status": {
+        "ActiveEnterTimestampMonotonic": "0",
+        "ActiveExitTimestampMonotonic": "0",
+        "ActiveState": "inactive",
+        "After": "network.target remote-fs.target systemd-journald.socket basic.target nss-lookup.target tmp.mount system.slice -.mount",
+        "AllowIsolate": "no",
+        "AmbientCapabilities": "0",
+        "AssertResult": "no",
+        "AssertTimestampMonotonic": "0",
+        "Before": "shutdown.target",
+        "BlockIOAccounting": "no",
+        "BlockIOWeight": "18446744073709551615",
+        "CPUAccounting": "no",
+        "CPUQuotaPerSecUSec": "infinity",
+        "CPUSchedulingPolicy": "0",
+        "CPUSchedulingPriority": "0",
+        "CPUSchedulingResetOnFork": "no",
+        "CPUShares": "18446744073709551615",
+        "CanIsolate": "no",
+        "CanReload": "yes",
+        "CanStart": "yes",
+        "CanStop": "yes",
+        "CapabilityBoundingSet": "18446744073709551615",
+        "ConditionResult": "no",
+        "ConditionTimestampMonotonic": "0",
+        "Conflicts": "shutdown.target",
+        "ControlPID": "0",
+        "DefaultDependencies": "yes",
+        "Delegate": "no",
+        "Description": "The Apache HTTP Server",
+        "DevicePolicy": "auto",
+        "Documentation": "man:httpd(8) man:apachectl(8)",
+        "EnvironmentFile": "/etc/sysconfig/httpd (ignore_errors=no)",
+        "ExecMainCode": "0",
+        "ExecMainExitTimestampMonotonic": "0",
+        "ExecMainPID": "0",
+        "ExecMainStartTimestampMonotonic": "0",
+        "ExecMainStatus": "0",
+        "ExecReload": "{ path=/usr/sbin/httpd ; argv[]=/usr/sbin/httpd $OPTIONS -k graceful ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExecStart": "{ path=/usr/sbin/httpd ; argv[]=/usr/sbin/httpd $OPTIONS -DFOREGROUND ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "ExecStop": "{ path=/bin/kill ; argv[]=/bin/kill -WINCH ${MAINPID} ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+        "FailureAction": "none",
+        "FileDescriptorStoreMax": "0",
+        "FragmentPath": "/usr/lib/systemd/system/httpd.service",
+        "GuessMainPID": "yes",
+        "IOScheduling": "0",
+        "Id": "httpd.service",
+        "IgnoreOnIsolate": "no",
+        "IgnoreOnSnapshot": "no",
+        "IgnoreSIGPIPE": "yes",
+        "InactiveEnterTimestampMonotonic": "0",
+        "InactiveExitTimestampMonotonic": "0",
+        "JobTimeoutAction": "none",
+        "JobTimeoutUSec": "0",
+        "KillMode": "control-group",
+        "KillSignal": "18",
+        "LimitAS": "18446744073709551615",
+        "LimitCORE": "18446744073709551615",
+        "LimitCPU": "18446744073709551615",
+        "LimitDATA": "18446744073709551615",
+        "LimitFSIZE": "18446744073709551615",
+        "LimitLOCKS": "18446744073709551615",
+        "LimitMEMLOCK": "65536",
+        "LimitMSGQUEUE": "819200",
+        "LimitNICE": "0",
+        "LimitNOFILE": "4096",
+        "LimitNPROC": "3782",
+        "LimitRSS": "18446744073709551615",
+        "LimitRTPRIO": "0",
+        "LimitRTTIME": "18446744073709551615",
+        "LimitSIGPENDING": "3782",
+        "LimitSTACK": "18446744073709551615",
+        "LoadState": "loaded",
+        "MainPID": "0",
+        "MemoryAccounting": "no",
+        "MemoryCurrent": "18446744073709551615",
+        "MemoryLimit": "18446744073709551615",
+        "MountFlags": "0",
+        "Names": "httpd.service",
+        "NeedDaemonReload": "no",
+        "Nice": "0",
+        "NoNewPrivileges": "no",
+        "NonBlocking": "no",
+        "NotifyAccess": "main",
+        "OOMScoreAdjust": "0",
+        "OnFailureJobMode": "replace",
+        "PermissionsStartOnly": "no",
+        "PrivateDevices": "no",
+        "PrivateNetwork": "no",
+        "PrivateTmp": "yes",
+        "ProtectHome": "no",
+        "ProtectSystem": "no",
+        "RefuseManualStart": "no",
+        "RefuseManualStop": "no",
+        "RemainAfterExit": "no",
+        "Requires": "-.mount basic.target",
+        "RequiresMountsFor": "/var/tmp",
+        "Restart": "no",
+        "RestartUSec": "100ms",
+        "Result": "success",
+        "RootDirectoryStartOnly": "no",
+        "RuntimeDirectoryMode": "0755",
+        "SameProcessGroup": "no",
+        "SecureBits": "0",
+        "SendSIGHUP": "no",
+        "SendSIGKILL": "yes",
+        "Slice": "system.slice",
+        "StandardError": "inherit",
+        "StandardInput": "null",
+        "StandardOutput": "journal",
+        "StartLimitAction": "none",
+        "StartLimitBurst": "5",
+        "StartLimitInterval": "10000000",
+        "StartupBlockIOWeight": "18446744073709551615",
+        "StartupCPUShares": "18446744073709551615",
+        "StatusErrno": "0",
+        "StopWhenUnneeded": "no",
+        "SubState": "dead",
+        "SyslogLevelPrefix": "yes",
+        "SyslogPriority": "30",
+        "SystemCallErrorNumber": "0",
+        "TTYReset": "no",
+        "TTYVHangup": "no",
+        "TTYVTDisallocate": "no",
+        "TasksAccounting": "no",
+        "TasksCurrent": "18446744073709551615",
+        "TasksMax": "18446744073709551615",
+        "TimeoutStartUSec": "1min 30s",
+        "TimeoutStopUSec": "1min 30s",
+        "TimerSlackNSec": "50000",
+        "Transient": "no",
+        "Type": "notify",
+        "UMask": "0022",
+        "UnitFilePreset": "disabled",
+        "UnitFileState": "disabled",
+        "Wants": "system.slice",
+        "WatchdogTimestampMonotonic": "0",
+        "WatchdogUSec": "0"
+    }
+}
+[ansible_user@ip-172-31-89-23 ansible]$
+[ansible_user@ip-172-31-89-23 ansible]$ sudo touch index.html
+[ansible_user@ip-172-31-89-23 ansible]$ ls -lrt
+total 28
+drwxr-xr-x. 2 root root     6 Jan 18 01:34 roles
+-rw-r--r--. 1 root root  1016 Jan 18 01:34 hosts_old
+-rw-r--r--. 1 root root 20277 Jan 18 01:34 ansible.cfg
+-rw-r--r--. 1 root root    23 Feb  4 09:24 hosts
+-rw-r--r--. 1 root root     0 Feb  4 09:31 text.txt
+-rw-r--r--. 1 root root     0 Feb  4 09:36 file1.txt
+-rw-r--r--. 1 root root     0 Feb  4 10:34 sample.txt
+-rw-r--r--. 1 root root     0 Feb  4 11:03 index.html
+[ansible_user@ip-172-31-89-23 ansible]$ sudo vi index.html
+[ansible_user@ip-172-31-89-23 ansible]$ ansible
+
+
+Usage: ansible <host-pattern> [options]
+
+Define and run a single task 'playbook' against a set of hosts
+
+Options:
+  -a MODULE_ARGS, --args=MODULE_ARGS
+                        module arguments
+  --ask-vault-pass      ask for vault password
+  -B SECONDS, --background=SECONDS
+                        run asynchronously, failing after X seconds
+                        (default=N/A)
+  -C, --check           don't make any changes; instead, try to predict some
+                        of the changes that may occur
+  -D, --diff            when changing (small) files and templates, show the
+                        differences in those files; works great with --check
+  -e EXTRA_VARS, --extra-vars=EXTRA_VARS
+                        set additional variables as key=value or YAML/JSON, if
+                        filename prepend with @
+  -f FORKS, --forks=FORKS
+                        specify number of parallel processes to use
+                        (default=5)
+  -h, --help            show this help message and exit
+  -i INVENTORY, --inventory=INVENTORY, --inventory-file=INVENTORY
+                        specify inventory host path or comma separated host
+                        list. --inventory-file is deprecated
+  -l SUBSET, --limit=SUBSET
+                        further limit selected hosts to an additional pattern
+  --list-hosts          outputs a list of matching hosts; does not execute
+                        anything else
+  -m MODULE_NAME, --module-name=MODULE_NAME
+                        module name to execute (default=command)
+  -M MODULE_PATH, --module-path=MODULE_PATH
+                        prepend colon-separated path(s) to module library (def
+                        ault=[u'/home/ansible_user/.ansible/plugins/modules',
+                        u'/usr/share/ansible/plugins/modules'])
+  -o, --one-line        condense output
+  --playbook-dir=BASEDIR
+                        Since this tool does not use playbooks, use this as a
+                        subsitute playbook directory.This sets the relative
+                        path for many features including roles/ group_vars/
+                        etc.
+  -P POLL_INTERVAL, --poll=POLL_INTERVAL
+                        set the poll interval if using -B (default=15)
+  --syntax-check        perform a syntax check on the playbook, but do not
+                        execute it
+  -t TREE, --tree=TREE  log output to this directory
+  --vault-id=VAULT_IDS  the vault identity to use
+  --vault-password-file=VAULT_PASSWORD_FILES
+                        vault password file
+  -v, --verbose         verbose mode (-vvv for more, -vvvv to enable
+                        connection debugging)
+  --version             show program's version number and exit
+
+  Connection Options:
+    control as whom and how to connect to hosts
+
+    -k, --ask-pass      ask for connection password
+    --private-key=PRIVATE_KEY_FILE, --key-file=PRIVATE_KEY_FILE
+                        use this file to authenticate the connection
+    -u REMOTE_USER, --user=REMOTE_USER
+                        connect as this user (default=None)
+    -c CONNECTION, --connection=CONNECTION
+                        connection type to use (default=smart)
+    -T TIMEOUT, --timeout=TIMEOUT
+                        override the connection timeout in seconds
+                        (default=10)
+    --ssh-common-args=SSH_COMMON_ARGS
+                        specify common arguments to pass to sftp/scp/ssh (e.g.
+                        ProxyCommand)
+    --sftp-extra-args=SFTP_EXTRA_ARGS
+                        specify extra arguments to pass to sftp only (e.g. -f,
+                        -l)
+    --scp-extra-args=SCP_EXTRA_ARGS
+                        specify extra arguments to pass to scp only (e.g. -l)
+    --ssh-extra-args=SSH_EXTRA_ARGS
+                        specify extra arguments to pass to ssh only (e.g. -R)
+
+  Privilege Escalation Options:
+    control how and which user you become as on target hosts
+
+    -s, --sudo          run operations with sudo (nopasswd) (deprecated, use
+                        become)
+    -U SUDO_USER, --sudo-user=SUDO_USER
+                        desired sudo user (default=root) (deprecated, use
+                        become)
+    -S, --su            run operations with su (deprecated, use become)
+    -R SU_USER, --su-user=SU_USER
+                        run operations with su as this user (default=None)
+                        (deprecated, use become)
+    -b, --become        run operations with become (does not imply password
+                        prompting)
+    --become-method=BECOME_METHOD
+                        privilege escalation method to use (default=sudo),
+                        valid choices: [ sudo | su | pbrun | pfexec | doas |
+                        dzdo | ksu | runas | pmrun | enable | machinectl ]
+    --become-user=BECOME_USER
+                        run operations as this user (default=root)
+    --ask-sudo-pass     ask for sudo password (deprecated, use become)
+    --ask-su-pass       ask for su password (deprecated, use become)
+    -K, --ask-become-pass
+                        ask for privilege escalation password
+
+Some modules do not make sense in Ad-Hoc (include, meta, etc)
+ERROR! Missing target hosts
+[ansible_user@ip-172-31-89-23 ansible]$
+[ansible_user@ip-172-31-89-23 ansible]$
+[ansible_user@ip-172-31-89-23 ansible]$
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m copy -a "src=index.html dest=/var/www/html"
+172.31.84.182 | FAILED! => {
+    "changed": false,
+    "checksum": "a81a59f40157bbfb9cfe0569ffb2dcaa60dc0139",
+    "msg": "Destination /var/www/html not writable"
+}
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m copy -a "src=index.html dest=/var/www/html/index.html"
+172.31.84.182 | FAILED! => {
+    "changed": false,
+    "checksum": "a81a59f40157bbfb9cfe0569ffb2dcaa60dc0139",
+    "msg": "Destination /var/www/html not writable"
+}
+[ansible_user@ip-172-31-89-23 ansible]$
+[ansible_user@ip-172-31-89-23 ansible]$ pwd
+/etc/ansible
+[ansible_user@ip-172-31-89-23 ansible]$ ansible group1 -m copy -a "src=index.html dest=/var/www/html/index.html" --become
+172.31.84.182 | CHANGED => {
+    "changed": true,
+    "checksum": "a81a59f40157bbfb9cfe0569ffb2dcaa60dc0139",
+    "dest": "/var/www/html/index.html",
+    "gid": 0,
+    "group": "root",
+    "md5sum": "b32251f9a500417b82d48978506eb1a1",
+    "mode": "0644",
+    "owner": "root",
+    "secontext": "system_u:object_r:httpd_sys_content_t:s0",
+    "size": 36,
+    "src": "/home/ansible_user/.ansible/tmp/ansible-tmp-1549278789.54-86346808587114/source",
+    "state": "file",
+    "uid": 0
+}
+[ansible_user@ip-172-31-89-23 ansible]$
+
+    1  cd /etc/ansible/
+    2  ls -lrt
+    3  ansible group1 -m user -a 'name=user1 password=12345 --become
+    4  ansible group1 -m user -a 'name=user1 password=12345' --become
+    5  ansible group1 -m command -a 'uptime'
+    6  ansible group1 -m user -a 'name=user1 state=absent' --become
+    7  ansible group1 -m command -a 'uptime'
+    8  cat /etc/passwd | grep user1
+    9  ansible group1 -m command -a 'uptime'
+   10  cat /etc/passwd | grep ansible_user
+   11  ansible group1 -m file -a 'dest=/home/ansible/file2.txt state=touch mode=600 owner=ansible_user group=ansible_user'
+   12  ansible group1 -m file -a 'dest=/home/ansible_user/file2.txt state=touch mode=600 owner=ansible_user group=ansible_user'
+   13  ansible group1 -m file -a "dest=/home/ansible_user/test1 state=directory mode=755"
+   14  history
+[ansible_user@ip-172-31-89-23 ansible]$
+

@@ -1,0 +1,141 @@
+* Create a  file on target machine
+---
+- hosts: group1
+  become: true
+  tasks:
+  - name: Create a file
+    file: path=/home/ansible/file3.txt state=touch
+----------------------------------
+*To check the playbook for syntax errors
+
+$ ansible-playbook create_file.yml  --syntax-check
+----------------------------------
+*To view hosts list
+
+$ ansible-playbook create_file.yml --list-hosts
+----------------------------------
+*Example 2: Create a directory with the mode as 775 and owner/group as Ansible.
+
+---
+- hosts: group1
+  become: true
+  tasks:
+  - name: Create directory
+    file: path=/home/ansible_user/ state=directory mode=775 owner=ansible group=ansible
+-----------------------------------------
+*Example 3: Create multiple directories. To create multiple directories with one single task you can use the loop with_items statement. So when you run the below playbook it is interpreted as 3 different tasks.
+
+---
+- hosts: webservers
+  become: true
+  tasks:
+  - name: Create multiple directories
+    file: path={{item}} state=directory
+    with_items:
+    - '/home/ansible/vn1'
+    - '/home/ansible/vn2'
+    - '/home/ansible/vn3'
+---------------------------------------------------
+*Example 6: Copy content to a file using the copy module.
+
+If you need to copy a file to the target machines or servers use the src and dest in the copy module.
+
+---
+- hosts: group1
+  become: true
+  tasks:
+  - name: Copy content to file
+    copy: content="Hello World Niranjan \n" dest=/home/ansible/file3.txt
+---------------------
+* zip
+- name: Ansible zip file example
+    archive:
+     path: /home/ansible_user/file3.txt
+     dest: /home/ansible_user/file3.zip
+     format: zip
+------------------------------
+* - name: Date and Time Example in Ansible
+    debug:
+     var=ansible_date_time.date
+--------
+ - name: Ansible timestamp filename example
+    command: touch file3{{ansible_date_time.date}}.log
+-----------------------
+*
+- hosts: all
+  vars:
+ name: docs
+  tasks:
+  - name: Ansible Basic Variable Example
+    debug:
+     msg: "{{ name }}"
+-----------------------------------
+*
+We can also capture the output of any task to a register variable.
+
+- hosts: all
+  tasks:
+  - name: Ansible register variable basic example
+    shell: "find *.txt"
+    args:
+     chdir: "/home/Ansible_user"
+    register: reg_output
+  - debug:
+     var: reg_output
+
+Note: To display – use the msg attribute and to capture any value use the var attribute in the – debug module
+-------------------------------------------------
+Example 12: Playbook to install vim editor and GIT on the target servers or machines.
+
+In this playbook, we have made use of the yum module to install the latest version of the software packages.
+
+---
+- hosts: group1
+  become: true
+  tasks:
+  - name: Install Package
+    yum: name=vim,git state=latest
+----------------------------------------------------------
+* Install JDK
+---
+- hosts: group1
+  become: true
+  vars:
+   download_url: https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.rpm
+  tasks:
+  - name: Download JDK 8 RPM file
+    command: "wget --no-check-certificate --no-cookies --header 'Cookie: oraclelicense=accept-securebackup-cookie' {{download_url}} "
+  - name: Install JDK 8
+    command: "rpm -ivh jdk-8u201-linux-x64.rpm"
+--------------------------------------------------------------
+---
+- name: Pre , Post tasks and Tags example
+  hosts: localhost
+  become: true
+  tags:
+     - niranjan
+  pre_tasks:
+  - debug: msg="Started task with tag - niranjan.
+  tasks:
+   - name: Going to execute the main task
+     debug: msg="Currently in the target server"
+  post_tasks:
+  - debug: msg="Completed task with tag - niranjan.
+  - name: Play without tags
+    hosts: localhost
+    become: true
+    tasks:
+    - name: Command to list files
+      shell: ls -lrt > hema.txt
+---------------------------------------------------------------------
+* Vaults
+---
+- hosts: group1
+  become: true
+  tasks:
+  - name: Copying Confidential Job Agreement
+    copy: content="This is a Confidential Job Agreement" dest=/home/ansible/file3.txt
+
+
+
+
